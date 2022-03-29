@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+
+
+<StackPane fx:id="parentContainer" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="welcome.WelcomeController">
+   <BorderPane fx:id="borderPaneContent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+               minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0"
+               style="-fx-background-color: #FFF7F3; -fx-background-image: url(https://i.imgur.com/7Usa7Es.png);">
+      <right>
+         <ImageView fitHeight="240.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true"
+                    BorderPane.alignment="BOTTOM_RIGHT">
+            <BorderPane.margin>
+               <Insets bottom="20.0" right="20.0"/>
+            </BorderPane.margin>
+            <Image url="@images/studying.png"/>
+         </ImageView>
+      </right>
+      <left>
+         <Button fx:id="getStartedButton" mnemonicParsing="false" onAction="#loadRegistrationScene"
+                 style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 15px;"
+                 text="GET STARTED" textAlignment="CENTER" textFill="#fff7f3" BorderPane.alignment="BOTTOM_CENTER">
+            <BorderPane.margin>
+               <Insets bottom="140.0" left="120.0"/>
+            </BorderPane.margin>
+            <font>
+               <Font name="Garamond Bold" size="32.0"/>
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+         </Button>
+      </left>
+      <top>
+         <Label text="WELCOME TO" textAlignment="CENTER" textFill="#56423c" BorderPane.alignment="CENTER_LEFT">
+            <font>
+               <Font name="Garamond Bold" size="54.0"/>
+            </font>
+            <BorderPane.margin>
+               <Insets left="80.0" top="100.0"/>
+            </BorderPane.margin>
+         </Label>
+      </top>
+      <center>
+         <Label minWidth="370.0" text="OnLearn" textAlignment="CENTER" textFill="#ff916c"
+                BorderPane.alignment="TOP_CENTER">
+            <font>
+               <Font name="Garamond Bold" size="96.0"/>
+            </font>
+            <BorderPane.margin>
+               <Insets left="100.0" top="20.0"/>
+            </BorderPane.margin>
+         </Label>
+      </center>
+   </BorderPane>
+</StackPane>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+           prefWidth="800.0"
+           style="-fx-background-image: url(https://i.imgur.com/xUtG0gN.png); -fx-background-position: center; -fx-background-size: 1100 800;"
+           xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="registration.RegistrationController">
+   <VBox prefHeight="200.0" prefWidth="100.0">
+      <HBox>
+         <VBox.margin>
+            <Insets left="300.0" top="90.0"/>
+         </VBox.margin>
+         <Label alignment="CENTER" text="USERNAME:" textAlignment="CENTER">
+            <padding>
+               <Insets bottom="2.5" top="2.5"/>
+            </padding>
+            <font>
+               <Font name="Garamond Bold" size="22.0"/>
+            </font>
+         </Label>
+         <TextField maxHeight="30.0" maxWidth="150.0" promptText="Username">
+            <font>
+               <Font name="Garamond" size="18.0"/>
+            </font>
+         </TextField>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="10.0" spacing="8.0">
+         <VBox.margin>
+            <Insets left="300.0" top="8.0"/>
+         </VBox.margin>
+         <Label text="PASSWORD:">
+            <font>
+               <Font name="Garamond Bold" size="22.0"/>
+            </font>
+            <padding>
+               <Insets bottom="2.5" top="2.5"/>
+            </padding>
+         </Label>
+         <TextField maxHeight="30.0" maxWidth="150.0" promptText="Password">
+            <font>
+               <Font name="Garamond" size="18.0"/>
+            </font>
+         </TextField>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="70.0">
+         <VBox.margin>
+            <Insets left="300.0" top="20.0"/>
+         </VBox.margin>
+         <Button mnemonicParsing="false"
+                 style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;"
+                 text="LOG IN" textAlignment="CENTER" textFill="#fff7f3">
+            <font>
+               <Font name="Garamond Bold" size="20.0"/>
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+         </Button>
+         <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false"
+                 style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;"
+                 text="FORGOT PASSWORD?" textAlignment="CENTER" textFill="#fff7f3">
+            <font>
+               <Font name="Garamond Bold" size="19.0"/>
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+         </Button>
+      </HBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+         <VBox.margin>
+            <Insets left="300.0" top="-20.0"/>
+         </VBox.margin>
+         <Label text="DON'T HAVE AN ACCOUNT?">
+            <font>
+               <Font name="Garamond Bold" size="22.0"/>
+            </font>
+         </Label>
+         <Button mnemonicParsing="false"
+                 style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;"
+                 text="REGISTER HERE" textAlignment="CENTER" textFill="#fff7f3">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+            <font>
+               <Font name="Garamond Bold" size="20.0"/>
+            </font>
+            <VBox.margin>
+               <Insets left="200.0"/>
+            </VBox.margin>
+         </Button>
+      </VBox>
+   </VBox>
+</StackPane>
