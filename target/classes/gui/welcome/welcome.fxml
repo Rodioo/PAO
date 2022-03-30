@@ -9,7 +9,7 @@
 
 
 <StackPane fx:id="parentContainer" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="welcome.WelcomeController">
+           fx:controller="gui.welcome.WelcomeController">
    <BorderPane fx:id="borderPaneContent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
                minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0"
                style="-fx-background-color: #FFF7F3; -fx-background-image: url(https://i.imgur.com/7Usa7Es.png);">

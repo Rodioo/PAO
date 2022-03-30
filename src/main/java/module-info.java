@@ -12,7 +12,7 @@ module pao {
 
     opens pao to javafx.fxml;
     exports pao;
-    exports welcome;
-    opens welcome to javafx.fxml;
-    opens registration to javafx.fxml;
+    exports gui.welcome;
+    opens gui.welcome to javafx.fxml;
+    opens gui.registration to javafx.fxml;
 }

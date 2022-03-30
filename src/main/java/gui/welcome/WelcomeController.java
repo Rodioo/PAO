@@ -1,4 +1,4 @@
-package welcome;
+package gui.welcome;
 
 
 import javafx.animation.Interpolator;
@@ -14,7 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
-import registration.RegistrationController;
+import gui.registration.RegistrationController;
 
 import java.io.IOException;
 import java.util.Objects;

@@ -4,7 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import welcome.WelcomeController;
+import gui.welcome.WelcomeController;
 import java.io.IOException;
 
 
