@@ -10,13 +10,13 @@ import java.io.IOException;
 
 public class Main extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage window) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(WelcomeController.class.getResource("welcome.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setTitle("OnLearn");
-        stage.setResizable(false);
-        stage.setScene(scene);
-        stage.show();
+        window.setTitle("OnLearn");
+        window.setResizable(false);
+        window.setScene(scene);
+        window.show();
     }
 
     public static void main(String[] args) {

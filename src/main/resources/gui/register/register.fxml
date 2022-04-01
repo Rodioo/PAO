@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+      prefWidth="800.0" spacing="13.0" style="-fx-background-image: url(https://i.imgur.com/Yrpta28.png);"
+      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="gui.register.RegisterController">
+   <padding>
+      <Insets left="150.0" top="20.0"/>
+   </padding>
+   <Label text="CREATE AN ACCOUNT" textAlignment="CENTER" textFill="#ff916c">
+      <font>
+         <Font name="Garamond Bold" size="38.0"/>
+      </font>
+      <VBox.margin>
+         <Insets left="15.0"/>
+      </VBox.margin>
+   </Label>
+   <HBox spacing="111.0">
+      <VBox.margin>
+         <Insets top="10.0"/>
+      </VBox.margin>
+      <Label alignment="CENTER" text="USERNAME:" textAlignment="CENTER">
+         <font>
+            <Font name="Garamond Bold" size="22.0"/>
+         </font>
+         <padding>
+            <Insets bottom="2.5" top="2.5"/>
+         </padding>
+      </Label>
+      <TextField maxHeight="30.0" maxWidth="200.0" promptText="Username">
+         <font>
+            <Font name="Garamond" size="18.0"/>
+         </font>
+      </TextField>
+   </HBox>
+   <HBox layoutX="10.0" layoutY="10.0" spacing="160.0">
+      <Label alignment="CENTER" text="E-MAIL:" textAlignment="CENTER">
+         <font>
+            <Font name="Garamond Bold" size="22.0"/>
+         </font>
+         <padding>
+            <Insets bottom="2.5" top="2.5"/>
+         </padding>
+      </Label>
+      <TextField maxHeight="30.0" maxWidth="200.0" promptText="E-Mail">
+         <font>
+            <Font name="Garamond" size="18.0"/>
+         </font>
+      </TextField>
+   </HBox>
+   <HBox layoutX="10.0" layoutY="44.0" spacing="120.0">
+      <Label alignment="CENTER" text="PASSWORD:" textAlignment="CENTER">
+         <font>
+            <Font name="Garamond Bold" size="22.0"/>
+         </font>
+         <padding>
+            <Insets bottom="2.5" top="2.5"/>
+         </padding>
+      </Label>
+      <PasswordField maxHeight="30.0" maxWidth="200.0" promptText="Password">
+         <font>
+            <Font name="Garamond" size="18.0"/>
+         </font>
+      </PasswordField>
+   </HBox>
+   <HBox layoutX="10.0" layoutY="78.0" spacing="5.0">
+      <Label alignment="CENTER" text="CONFIRM PASSWORD:" textAlignment="CENTER">
+         <font>
+            <Font name="Garamond Bold" size="22.0"/>
+         </font>
+         <padding>
+            <Insets bottom="2.5" top="2.5"/>
+         </padding>
+      </Label>
+      <PasswordField maxHeight="30.0" maxWidth="200.0" promptText="Confirm Password">
+         <font>
+            <Font name="Garamond" size="18.0"/>
+         </font>
+      </PasswordField>
+   </HBox>
+   <HBox spacing="100.0" stylesheets="@css/style.css">
+      <VBox.margin>
+         <Insets left="-0.0" top="70.0"/>
+      </VBox.margin>
+      <RadioButton mnemonicParsing="false" text="STUDENT">
+         <font>
+            <Font name="Garamond Bold" size="21.0"/>
+         </font>
+         <HBox.margin>
+            <Insets/>
+         </HBox.margin>
+         <toggleGroup>
+            <ToggleGroup fx:id="UserType"/>
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="TEACHER" toggleGroup="$UserType">
+         <font>
+            <Font name="Garamond Bold" size="21.0"/>
+         </font>
+      </RadioButton>
+   </HBox>
+   <Button mnemonicParsing="false"
+           style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="REGISTER"
+           textAlignment="CENTER" textFill="#fff7f3">
+      <cursor>
+         <Cursor fx:constant="HAND"/>
+      </cursor>
+      <font>
+         <Font name="Garamond Bold" size="32.0"/>
+      </font>
+      <VBox.margin>
+         <Insets left="160.0" top="100.0"/>
+      </VBox.margin>
+   </Button>
+</VBox>

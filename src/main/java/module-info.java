@@ -14,5 +14,6 @@ module pao {
     exports pao;
     exports gui.welcome;
     opens gui.welcome to javafx.fxml;
-    opens gui.registration to javafx.fxml;
+    opens gui.login to javafx.fxml;
+    opens gui.register to javafx.fxml;
 }

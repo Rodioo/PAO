@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-image: url(https://i.imgur.com/xUtG0gN.png); -fx-background-position: center; -fx-background-size: 1100 800;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.registration.RegistrationController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-image: url(https://i.imgur.com/xUtG0gN.png); -fx-background-position: center; -fx-background-size: 1100 800;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.login.LoginController">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
@@ -74,14 +74,14 @@
                   <Insets left="300.0" top="20.0" />
                </VBox.margin>
             </HBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+            <VBox spacing="10.0">
                <children>
                   <Label text="DON'T HAVE AN ACCOUNT?">
                      <font>
                         <Font name="Garamond Bold" size="22.0" />
                      </font>
                   </Label>
-                  <Button mnemonicParsing="false" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="REGISTER HERE" textAlignment="CENTER" textFill="#fff7f3">
+                  <Button fx:id="registerButton" mnemonicParsing="false" onAction="#loadRegisterScene" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="REGISTER HERE" textAlignment="CENTER" textFill="#fff7f3">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
