@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.geometry.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
@@ -8,20 +11,20 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
       prefWidth="800.0" spacing="13.0" style="-fx-background-image: url(https://i.imgur.com/Yrpta28.png);"
-      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      stylesheets="@css/register.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="gui.register.RegisterController">
    <padding>
-      <Insets left="150.0" top="20.0"/>
+      <Insets left="120.0" top="15.0"/>
    </padding>
    <Label text="CREATE AN ACCOUNT" textAlignment="CENTER" textFill="#ff916c">
       <font>
          <Font name="Garamond Bold" size="38.0"/>
       </font>
       <VBox.margin>
-         <Insets left="15.0"/>
+         <Insets left="50.0"/>
       </VBox.margin>
    </Label>
-   <HBox spacing="111.0">
+   <HBox spacing="5.0">
       <VBox.margin>
          <Insets top="10.0"/>
       </VBox.margin>
@@ -33,13 +36,38 @@
             <Insets bottom="2.5" top="2.5"/>
          </padding>
       </Label>
-      <TextField maxHeight="30.0" maxWidth="200.0" promptText="Username">
+      <TextField fx:id="usernameField" maxHeight="30.0" maxWidth="200.0" promptText="Username"
+                 style="-fx-background-color: transparent; -fx-border-color: #FF916C; -fx-border-width: 0px 0px 2px 0px;">
          <font>
             <Font name="Garamond" size="18.0"/>
          </font>
+         <HBox.margin>
+            <Insets left="106.0"/>
+         </HBox.margin>
       </TextField>
+      <Button fx:id="usernameErrorButton" mnemonicParsing="false" onMouseEntered="#displayUsernameError"
+              onMouseExited="#hideUsernameError" style="-fx-background-color: transparent;" visible="false">
+         <graphic>
+            <FontAwesomeIcon fill="#ff916c" glyphName="EXCLAMATION_CIRCLE" size="20px"/>
+         </graphic>
+         <HBox.margin>
+            <Insets top="5.0"/>
+         </HBox.margin>
+         <font>
+            <Font name="Garamond Bold" size="14.0"/>
+         </font>
+      </Button>
+      <Label fx:id="usernameErrorLabel" opacity="0.0" text="INVALID USERNAME" textAlignment="CENTER"
+             textFill="#900e00">
+         <font>
+            <Font name="Garamond Bold" size="14.0"/>
+         </font>
+         <HBox.margin>
+            <Insets top="11.0"/>
+         </HBox.margin>
+      </Label>
    </HBox>
-   <HBox layoutX="10.0" layoutY="10.0" spacing="160.0">
+   <HBox layoutX="10.0" layoutY="10.0" spacing="5.0">
       <Label alignment="CENTER" text="E-MAIL:" textAlignment="CENTER">
          <font>
             <Font name="Garamond Bold" size="22.0"/>
@@ -48,13 +76,36 @@
             <Insets bottom="2.5" top="2.5"/>
          </padding>
       </Label>
-      <TextField maxHeight="30.0" maxWidth="200.0" promptText="E-Mail">
+      <TextField fx:id="emailField" maxHeight="30.0" maxWidth="200.0" promptText="E-Mail">
          <font>
             <Font name="Garamond" size="18.0"/>
          </font>
+         <HBox.margin>
+            <Insets left="155.0"/>
+         </HBox.margin>
       </TextField>
+      <Button fx:id="emailErrorButton" mnemonicParsing="false" onMouseEntered="#displayEmailError"
+              onMouseExited="#hideEmailError" style="-fx-background-color: transparent;" visible="false">
+         <font>
+            <Font name="Garamond Bold" size="14.0"/>
+         </font>
+         <graphic>
+            <FontAwesomeIcon fill="#ff916c" glyphName="EXCLAMATION_CIRCLE" size="20px"/>
+         </graphic>
+         <HBox.margin>
+            <Insets top="5.0"/>
+         </HBox.margin>
+      </Button>
+      <Label fx:id="emailErrorLabel" opacity="0.0" text="INVALID E-MAIL " textAlignment="CENTER" textFill="#900e00">
+         <font>
+            <Font name="Garamond Bold" size="14.0"/>
+         </font>
+         <HBox.margin>
+            <Insets top="11.0"/>
+         </HBox.margin>
+      </Label>
    </HBox>
-   <HBox layoutX="10.0" layoutY="44.0" spacing="120.0">
+   <HBox layoutX="10.0" layoutY="44.0" spacing="5.0">
       <Label alignment="CENTER" text="PASSWORD:" textAlignment="CENTER">
          <font>
             <Font name="Garamond Bold" size="22.0"/>
@@ -63,11 +114,35 @@
             <Insets bottom="2.5" top="2.5"/>
          </padding>
       </Label>
-      <PasswordField maxHeight="30.0" maxWidth="200.0" promptText="Password">
+      <PasswordField fx:id="passwordField" maxHeight="30.0" maxWidth="200.0" promptText="Password">
          <font>
             <Font name="Garamond" size="18.0"/>
          </font>
+         <HBox.margin>
+            <Insets left="115.0"/>
+         </HBox.margin>
       </PasswordField>
+      <Button fx:id="passwordErrorButton" mnemonicParsing="false" onMouseEntered="#displayPasswordError"
+              onMouseExited="#hidePasswordError" style="-fx-background-color: transparent;" visible="false">
+         <font>
+            <Font name="Garamond Bold" size="14.0"/>
+         </font>
+         <graphic>
+            <FontAwesomeIcon fill="#ff916c" glyphName="EXCLAMATION_CIRCLE" size="20px"/>
+         </graphic>
+         <HBox.margin>
+            <Insets top="5.0"/>
+         </HBox.margin>
+      </Button>
+      <Label fx:id="passwordErrorLabel" opacity="0.0" text="INVALID PASSWORD" textAlignment="CENTER"
+             textFill="#900e00" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font name="Garamond Bold" size="14.0"/>
+         </font>
+         <HBox.margin>
+            <Insets top="11.0"/>
+         </HBox.margin>
+      </Label>
    </HBox>
    <HBox layoutX="10.0" layoutY="78.0" spacing="5.0">
       <Label alignment="CENTER" text="CONFIRM PASSWORD:" textAlignment="CENTER">
@@ -78,17 +153,39 @@
             <Insets bottom="2.5" top="2.5"/>
          </padding>
       </Label>
-      <PasswordField maxHeight="30.0" maxWidth="200.0" promptText="Confirm Password">
+      <PasswordField fx:id="confirmPasswordField" maxHeight="30.0" maxWidth="200.0" promptText="Confirm Password">
          <font>
             <Font name="Garamond" size="18.0"/>
          </font>
       </PasswordField>
+      <Button fx:id="confirmPasswordErrorButton" mnemonicParsing="false"
+              onMouseEntered="#displayConfirmPasswordError" onMouseExited="#hideConfirmPasswordError"
+              style="-fx-background-color: transparent;" visible="false">
+         <font>
+            <Font name="Garamond Bold" size="14.0"/>
+         </font>
+         <graphic>
+            <FontAwesomeIcon fill="#ff916c" glyphName="EXCLAMATION_CIRCLE" size="20px"/>
+         </graphic>
+         <HBox.margin>
+            <Insets top="5.0"/>
+         </HBox.margin>
+      </Button>
+      <Label fx:id="confirmPasswordErrorLabel" opacity="0.0" text="DIFFERENT PASSWORD" textAlignment="CENTER"
+             textFill="#900e00" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font name="Garamond Bold" size="14.0"/>
+         </font>
+         <HBox.margin>
+            <Insets top="11.0"/>
+         </HBox.margin>
+      </Label>
    </HBox>
-   <HBox spacing="100.0" stylesheets="@css/style.css">
+   <HBox spacing="100.0">
       <VBox.margin>
-         <Insets left="-0.0" top="70.0"/>
+         <Insets left="30.0" top="70.0"/>
       </VBox.margin>
-      <RadioButton mnemonicParsing="false" text="STUDENT">
+      <RadioButton mnemonicParsing="false" selected="true" text="STUDENT">
          <font>
             <Font name="Garamond Bold" size="21.0"/>
          </font>
@@ -96,16 +193,17 @@
             <Insets/>
          </HBox.margin>
          <toggleGroup>
-            <ToggleGroup fx:id="UserType"/>
+            <ToggleGroup fx:id="userTypeOptions"/>
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="TEACHER" toggleGroup="$UserType">
+      <RadioButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="TEACHER"
+                   toggleGroup="$userTypeOptions">
          <font>
             <Font name="Garamond Bold" size="21.0"/>
          </font>
       </RadioButton>
    </HBox>
-   <Button mnemonicParsing="false"
+   <Button mnemonicParsing="false" onAction="#registerUser"
            style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="REGISTER"
            textAlignment="CENTER" textFill="#fff7f3">
       <cursor>
@@ -115,7 +213,17 @@
          <Font name="Garamond Bold" size="32.0"/>
       </font>
       <VBox.margin>
-         <Insets left="160.0" top="100.0"/>
+         <Insets left="160.0" top="70.0"/>
       </VBox.margin>
    </Button>
+   <Label fx:id="passwordRequirementsLabel" alignment="CENTER" opacity="0.0" prefHeight="90.0" prefWidth="580.0"
+          text="PASWORD MUST HAVE: 8 - 20 CHARACTERS, UPPERCASE AND LOWERCASE LETTERS, DIGITS AND SPECIAL CHARACTERS."
+          textFill="#900e00" wrapText="true">
+      <font>
+         <Font name="Garamond Bold" size="18.0"/>
+      </font>
+      <VBox.margin>
+         <Insets left="17.0"/>
+      </VBox.margin>
+   </Label>
 </VBox>

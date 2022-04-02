@@ -24,7 +24,8 @@
                <Font name="Garamond Bold" size="22.0"/>
             </font>
          </Label>
-         <TextField maxHeight="30.0" maxWidth="150.0" promptText="Username">
+         <TextField maxHeight="30.0" maxWidth="200.0" promptText="Username"
+                    style="-fx-background-color: transparent; -fx-border-color: #FF916C; -fx-border-width: 0px 0px 2px 0px;">
             <font>
                <Font name="Garamond" size="18.0"/>
             </font>
@@ -42,7 +43,8 @@
                <Insets bottom="2.5" top="2.5"/>
             </padding>
          </Label>
-         <TextField maxHeight="30.0" maxWidth="150.0" promptText="Password">
+         <TextField maxHeight="30.0" maxWidth="200.0" promptText="Password"
+                    style="-fx-background-color: transparent; -fx-border-color: #FF916C; -fx-border-width: 0px 0px 2px 0px;">
             <font>
                <Font name="Garamond" size="18.0"/>
             </font>

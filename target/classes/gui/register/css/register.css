@@ -1,0 +1,10 @@
+.radio-button:selected .radio .dot {
+    -fx-background-color: #FF916C;
+    -fx-background-insets: 0;
+}
+
+.text-field {
+    -fx-background-color: transparent;
+    -fx-border-color:  #FF916C;
+    -fx-border-width: 0px 0px 2px 0px;
+}

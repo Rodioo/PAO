@@ -12,6 +12,9 @@
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
             <HBox>
+               <VBox.margin>
+                  <Insets left="300.0" top="90.0" />
+               </VBox.margin>
                <children>
                   <Label alignment="CENTER" text="USERNAME:" textAlignment="CENTER">
                      <padding>
@@ -21,17 +24,17 @@
                         <Font name="Garamond Bold" size="22.0" />
                      </font>
                   </Label>
-                  <TextField maxHeight="30.0" maxWidth="150.0" promptText="Username">
+                  <TextField maxHeight="30.0" maxWidth="200.0" promptText="Username" style="-fx-background-color: transparent; -fx-border-color: #FF916C; -fx-border-width: 0px 0px 2px 0px;">
                      <font>
                         <Font name="Garamond" size="18.0" />
                      </font>
                   </TextField>
                </children>
-               <VBox.margin>
-                  <Insets left="300.0" top="90.0" />
-               </VBox.margin>
             </HBox>
             <HBox layoutX="10.0" layoutY="10.0" spacing="8.0">
+               <VBox.margin>
+                  <Insets left="300.0" top="8.0" />
+               </VBox.margin>
                <children>
                   <Label text="PASSWORD:">
                      <font>
@@ -41,17 +44,17 @@
                         <Insets bottom="2.5" top="2.5" />
                      </padding>
                   </Label>
-                  <TextField maxHeight="30.0" maxWidth="150.0" promptText="Password">
+                  <TextField maxHeight="30.0" maxWidth="200.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #FF916C; -fx-border-width: 0px 0px 2px 0px;">
                      <font>
                         <Font name="Garamond" size="18.0" />
                      </font>
                   </TextField>
                </children>
-               <VBox.margin>
-                  <Insets left="300.0" top="8.0" />
-               </VBox.margin>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="70.0">
+               <VBox.margin>
+                  <Insets left="300.0" top="20.0" />
+               </VBox.margin>
                <children>
                   <Button mnemonicParsing="false" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="LOG IN" textAlignment="CENTER" textFill="#fff7f3">
                      <font>
@@ -70,11 +73,11 @@
                      </cursor>
                   </Button>
                </children>
-               <VBox.margin>
-                  <Insets left="300.0" top="20.0" />
-               </VBox.margin>
             </HBox>
             <VBox spacing="10.0">
+               <VBox.margin>
+                  <Insets left="300.0" top="-20.0" />
+               </VBox.margin>
                <children>
                   <Label text="DON'T HAVE AN ACCOUNT?">
                      <font>
@@ -93,9 +96,6 @@
                      </VBox.margin>
                   </Button>
                </children>
-               <VBox.margin>
-                  <Insets left="300.0" top="-20.0" />
-               </VBox.margin>
             </VBox>
          </children>
       </VBox>
