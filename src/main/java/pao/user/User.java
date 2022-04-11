@@ -1,20 +1,44 @@
 package pao.user;
 
-import java.util.concurrent.atomic.AtomicLong;
+import pao.student.Student;
+import pao.teacher.Teacher;
 
-public abstract class User {
+
+public sealed class User permits Student, Teacher {
 
     private final long id;
-    private static final AtomicLong counter = new AtomicLong(0);
     private String username;
     private final String email;
     private String password;
 
     public User(String username, String email, String password) {
-        this.id = counter.incrementAndGet();
+        this.id = UserDao.getInstance().getNextId();
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public User(long id, String username, String email, String password) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     @Override

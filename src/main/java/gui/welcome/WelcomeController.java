@@ -19,7 +19,7 @@ public class WelcomeController {
     @FXML
     private static Stage window;
 
-    //TODO surround with try-catch
+
     //Loads the next scene (Login in this case)
     public void loadLoginScene() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(LoginController.class.getResource("login.fxml"));

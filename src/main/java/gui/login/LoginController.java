@@ -17,7 +17,6 @@ public class LoginController {
     @FXML
     private Stage window;
 
-    //TODO surround with try-catch
     //Loads the next scene (Register in this case)
     public void loadRegisterScene() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(RegisterController.class.getResource("register.fxml"));

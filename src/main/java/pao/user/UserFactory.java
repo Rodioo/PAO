@@ -1,7 +1,7 @@
 package pao.user;
 
-import pao.user.student.Student;
-import pao.user.teacher.Teacher;
+import pao.student.Student;
+import pao.teacher.Teacher;
 
 public class UserFactory {
 
@@ -15,7 +15,6 @@ public class UserFactory {
         else if(userType.equals("TEACHER")) {
             return new Teacher(username, email, password);
         }
-
         return null;
     }
 }

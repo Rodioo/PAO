@@ -12,8 +12,12 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.jetbrains.annotations.NotNull;
+import pao.student.Student;
+import pao.student.StudentDao;
+import pao.teacher.TeacherDao;
 import pao.user.User;
 import pao.user.UserFactory;
+import pao.user.UserService;
 
 import java.io.IOException;
 import java.util.regex.Pattern;
@@ -27,37 +31,32 @@ public class RegisterController{
     private Button usernameErrorButton;
     @FXML
     private Label usernameErrorLabel;
-
     @FXML
     private TextField emailField;
     @FXML
     private Button emailErrorButton;
     @FXML
     private Label emailErrorLabel;
-
     @FXML
     private PasswordField passwordField;
     @FXML
     private Button passwordErrorButton;
     @FXML
     private Label passwordErrorLabel;
-
     @FXML
     private PasswordField confirmPasswordField;
     @FXML
     private Button confirmPasswordErrorButton;
     @FXML
     private Label confirmPasswordErrorLabel;
-
     @FXML
     private ToggleGroup userTypeOptions;
-
     @FXML
     private Label passwordRequirementsLabel;
-
     @FXML
     private Stage window;
 
+    private long userId;
 
     private void displayErrorLabel(Label errorLabel) {
         FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), errorLabel);
@@ -111,7 +110,7 @@ public class RegisterController{
         String userType = ((RadioButton)userTypeOptions.getSelectedToggle()).getText();
 
         if(validateUser() && validateEmail() && validatePassword() && validateConfirmPassword()) {
-            User user = UserFactory.getUser(usernameField.getText(), emailField.getText(), passwordField.getText(), userType);
+            userId = UserService.registerUser(usernameField.getText(), emailField.getText(), passwordField.getText(), userType);
             loadScene(userType);
         }
 
@@ -152,18 +151,22 @@ public class RegisterController{
     }
 
     private void loadScene(@NotNull String userType) throws IOException {
+        window = (Stage) usernameField.getScene().getWindow();
         FXMLLoader fxmlLoader;
+        Scene scene;
         if(userType.equals("STUDENT")) {
             fxmlLoader = new FXMLLoader(StudentHomeController.class.getResource("studentHome.fxml"));
+            scene = new Scene(fxmlLoader.load(), 800, 600);
+            window.setScene(scene);
+            StudentHomeController controller = fxmlLoader.getController();
+            controller.initData(StudentDao.getInstance().getById(userId));
         }
         else if(userType.equals("TEACHER")) {
             fxmlLoader = new FXMLLoader(TeacherHomeController.class.getResource("teacherHome.fxml"));
+            scene = new Scene(fxmlLoader.load(), 800, 600);
+            window.setScene(scene);
+            TeacherHomeController controller = fxmlLoader.getController();
+            controller.initData(TeacherDao.getInstance().getById(userId));
         }
-        else {
-            return;
-        }
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        window = (Stage) usernameField.getScene().getWindow();
-        window.setScene(scene);
     }
 }

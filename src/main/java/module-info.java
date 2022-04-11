@@ -9,6 +9,7 @@ module pao {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires org.jetbrains.annotations;
+    requires java.sql;
 
     opens pao to javafx.fxml;
     exports pao;
@@ -18,4 +19,8 @@ module pao {
     opens gui.register to javafx.fxml;
     opens gui.student to javafx.fxml;
     opens gui.teacher to javafx.fxml;
+    exports db;
+    opens db to javafx.fxml;
+    exports pao.questionInfo;
+    opens pao.questionInfo to javafx.fxml;
 }
