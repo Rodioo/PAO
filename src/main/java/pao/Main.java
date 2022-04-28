@@ -7,7 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import gui.welcome.WelcomeController;
-import pao.student.StudentDao;
+
 
 import java.io.IOException;
 

@@ -2,7 +2,6 @@ package db;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 
@@ -14,7 +13,7 @@ public interface Dao<T> {
 
     T getById(long id);
 
-    List<T> getAll() throws SQLException;
+    List<T> getAll();
 
     long insert(T t);
 

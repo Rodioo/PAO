@@ -2,6 +2,7 @@ package pao.user;
 
 import db.Dao;
 import org.jetbrains.annotations.NotNull;
+import utils.Countable;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class UserDao implements Dao<User> {
+public class UserDao implements Countable, Dao<User> {
 
     private static List<User> users = new ArrayList<>();
     private static UserDao singleton = null;
@@ -25,6 +26,7 @@ public class UserDao implements Dao<User> {
         return singleton;
     }
 
+    @Override
     public long getNextId() {
         return (users == null) ? 1 : users.size() + 1;
     }
@@ -38,6 +40,7 @@ public class UserDao implements Dao<User> {
             String password = resultSet.getString("password");
             return new User(id, username, email, password);
         }catch (SQLException e) {
+            System.out.println(e.getMessage());
             return null;
         }
     }
@@ -62,6 +65,7 @@ public class UserDao implements Dao<User> {
             }
         }catch (SQLException e) {
             System.out.println("Error occurred when getting the users from database.");
+            System.out.println(e.getMessage());
         }
         return userList;
     }
@@ -81,6 +85,7 @@ public class UserDao implements Dao<User> {
             preparedStatement.setString(4, user.getPassword());
             preparedStatement.executeUpdate();
         }catch(SQLException e) {
+            System.out.println("Error occurred when inserting the user to database.");
             System.out.println(e.getMessage());
         }
         return user.getId();

@@ -23,4 +23,6 @@ module pao {
     opens db to javafx.fxml;
     exports pao.questionInfo;
     opens pao.questionInfo to javafx.fxml;
+    exports utils;
+    opens utils to javafx.fxml;
 }

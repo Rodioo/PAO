@@ -35,6 +35,7 @@ public class StudentDao implements Dao<Student> {
             boolean isPremium = resultSet.getBoolean("isPremium");
             return isPremium ? new PremiumStudent(user, points, null) : new Student(user, points, null);
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
             return null;
         }
 
@@ -62,6 +63,7 @@ public class StudentDao implements Dao<Student> {
             }
         }catch (SQLException e) {
             System.out.println("Error occurred when getting the students from database.");
+            System.out.println(e.getMessage());
         }
         return studentList;
     }
@@ -80,6 +82,7 @@ public class StudentDao implements Dao<Student> {
             preparedStatement.setLong(1, student.getId());
             preparedStatement.executeUpdate();
         }catch(SQLException e) {
+            System.out.println("Error occurred when inserting the student to database.");
             System.out.println(e.getMessage());
         }
         return student.getId();
