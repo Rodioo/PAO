@@ -30,7 +30,7 @@ public class StudentDao implements Dao<Student> {
         try{
             int points = resultSet.getInt("points");
             //TODO: Add the CourseInformation table and CourseInformationDao
-            int courseInformationId = resultSet.getInt("courseInformationId");
+            long courseInformationId = resultSet.getInt("courseInformationId");
             //CourseInformation courseInformation = CourseInformationDao.getInstance().getById(courseInformationId);
             boolean isPremium = resultSet.getBoolean("isPremium");
             return isPremium ? new PremiumStudent(user, points, null) : new Student(user, points, null);

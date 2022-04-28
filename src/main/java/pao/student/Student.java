@@ -36,7 +36,7 @@ public sealed class Student extends User permits PremiumStudent {
                 ", username='" + getUsername() + '\'' +
                 ", email='" + getEmail() + '\'' +
                 ", password='" + getPassword() + '\'' +
-                "points=" + points +
+                ", points=" + points +
                 ", courseInformation=" + courseInformation +
                 "} ";
     }

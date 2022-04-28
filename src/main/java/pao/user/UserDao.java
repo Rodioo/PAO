@@ -52,6 +52,12 @@ public class UserDao implements Countable, Dao<User> {
                 .findAny().orElse(null);
     }
 
+    public User getByUsernameAndPassword(String username, String password) {
+        return users.stream()
+                .filter(user -> user.getUsername().equals(username) && user.getPassword().equals(password))
+                .findAny().orElse(null);
+    }
+
     @Override
     public List<User> getAll() {
         List<User> userList = new ArrayList<>();

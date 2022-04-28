@@ -1,7 +1,5 @@
 package gui.register;
 
-
-
 import gui.student.StudentHomeController;
 import gui.teacher.TeacherHomeController;
 import javafx.animation.FadeTransition;
@@ -12,11 +10,8 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.jetbrains.annotations.NotNull;
-import pao.student.Student;
 import pao.student.StudentDao;
 import pao.teacher.TeacherDao;
-import pao.user.User;
-import pao.user.UserFactory;
 import pao.user.UserService;
 
 import java.io.IOException;
