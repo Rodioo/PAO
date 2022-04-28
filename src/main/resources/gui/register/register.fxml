@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import de.jensd.fx.glyphs.fontawesome.*?>
 <?import javafx.geometry.*?>
@@ -14,14 +15,39 @@
       <Insets left="120.0" top="15.0" />
    </padding>
    <children>
-      <Label text="CREATE AN ACCOUNT" textAlignment="CENTER" textFill="#ff916c">
-         <font>
-            <Font name="Garamond Bold" size="38.0" />
-         </font>
-         <VBox.margin>
-            <Insets left="50.0" />
-         </VBox.margin>
-      </Label>
+      <HBox>
+         <children>
+            <Label text="CREATE AN ACCOUNT" textAlignment="CENTER" textFill="#ff916c">
+               <font>
+                  <Font name="Garamond Bold" size="38.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
+               <HBox.margin>
+                  <Insets left="50.0" top="5.0" />
+               </HBox.margin>
+            </Label>
+            <Button mnemonicParsing="false" onAction="#loadLoginScene" style="-fx-background-color: transparent;">
+               <HBox.margin>
+                  <Insets left="120.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/back.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </HBox>
       <HBox spacing="5.0">
          <VBox.margin>
             <Insets top="10.0" />
@@ -209,7 +235,7 @@
             <Font name="Garamond Bold" size="32.0" />
          </font>
          <VBox.margin>
-            <Insets left="160.0" top="70.0" />
+            <Insets left="160.0" top="65.0" />
          </VBox.margin>
       </Button>
       <Label fx:id="passwordRequirementsLabel" alignment="CENTER" opacity="0.0" prefHeight="90.0" prefWidth="580.0" text="PASWORD MUST HAVE: 8 - 20 CHARACTERS, UPPERCASE AND LOWERCASE LETTERS, DIGITS AND SPECIAL CHARACTERS." textFill="#900e00" wrapText="true">
@@ -217,7 +243,7 @@
             <Font name="Garamond Bold" size="18.0" />
          </font>
          <VBox.margin>
-            <Insets left="17.0" />
+            <Insets bottom="5.0" left="17.0" />
          </VBox.margin>
       </Label>
    </children>

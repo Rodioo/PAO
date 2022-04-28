@@ -1,5 +1,6 @@
 package gui.register;
 
+import gui.login.LoginController;
 import gui.student.StudentHomeController;
 import gui.teacher.TeacherHomeController;
 import javafx.animation.FadeTransition;
@@ -9,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.controlsfx.glyphfont.FontAwesome;
 import org.jetbrains.annotations.NotNull;
 import pao.student.StudentDao;
 import pao.teacher.TeacherDao;
@@ -169,4 +171,12 @@ public class RegisterController{
             controller.initData(TeacherDao.getInstance().getById(userId));
         }
     }
+
+    public void loadLoginScene() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(LoginController.class.getResource("login.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        window = (Stage) usernameField.getScene().getWindow();
+        window.setScene(scene);
+    }
+
 }
