@@ -30,7 +30,6 @@ public class StudentHomeController implements Initializable {
 
     public void initData(Student student) {
         this.student = student;
-
         usernameLabel.setText(student.getUsername());
         displayCorrectScene();
     }

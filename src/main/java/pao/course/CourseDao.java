@@ -39,6 +39,11 @@ public class CourseDao implements Countable, Dao<Course> {
                 .findAny().orElse(null);
     }
 
+    //TODO: Query to get all courses using the aux_courses table, id_teacher and course table
+    public List<Course> getCoursesByTeacherId(long id) {
+        return null;
+    }
+
     @Override
     public List<Course> getAll() {
         return new ArrayList<>();

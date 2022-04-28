@@ -47,7 +47,6 @@ public class LoginController {
         User user = UserDao.getInstance().getByUsernameAndPassword(usernameField.getText(), passwordField.getText());
         if(user == null) {
             displayErrorLabel(loginIncorrectLabel);
-            System.out.println(1);
         }
         else {
             window = (Stage) usernameField.getScene().getWindow();
@@ -56,7 +55,6 @@ public class LoginController {
                 Teacher teacher = TeacherDao.getInstance().getById(user.getId());
                 if(teacher == null) {
                     displayErrorLabel(loginIncorrectLabel);
-                    System.out.println(2);
                 }
                 else {
                     FXMLLoader fxmlLoader = new FXMLLoader(TeacherHomeController.class.getResource("teacherHome.fxml"));
@@ -64,7 +62,6 @@ public class LoginController {
                     window.setScene(scene);
                     TeacherHomeController controller = fxmlLoader.getController();
                     controller.initData(teacher);
-                    System.out.println(teacher);
                 }
             }
             else {
@@ -73,7 +70,6 @@ public class LoginController {
                 window.setScene(scene);
                 StudentHomeController controller = fxmlLoader.getController();
                 controller.initData(student);
-                System.out.println(student);
             }
         }
     }

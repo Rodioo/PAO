@@ -30,15 +30,9 @@ public class TeacherDao implements Dao<Teacher> {
     @Override
     public Teacher rowToObject(ResultSet resultSet) {
         User user = UserDao.getInstance().rowToObject(resultSet);
-        try{
-            long courseId = resultSet.getLong("courseId");
-            //TODO: Add the Course table and UI of a teacher creating a course
-            Course course = CourseDao.getInstance().getById(courseId);
-            return new Teacher(user, course);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
+        //TODO: Add the Course table and UI of a teacher creating a course
+        //Course course = CourseDao.getInstance().getById(courseId);
+        return new Teacher(user, null);
     }
 
     @Override
@@ -52,7 +46,7 @@ public class TeacherDao implements Dao<Teacher> {
     public List<Teacher> getAll() {
         List<Teacher> teacherList = new ArrayList<>();
         try{
-            String query = "SELECT u.*, t.courseId " +
+            String query = "SELECT u.* " +
                     "FROM proiectpao.users u , proiectpao.teachers t " +
                     "WHERE u.idUser = t.idUser;";
             PreparedStatement preparedStatement = Dao.connection.prepareStatement(query);
@@ -76,8 +70,8 @@ public class TeacherDao implements Dao<Teacher> {
             return -1;
         teachers.add(teacher);
         try {
-            String query = "INSERT INTO proiectpao.teachers(idUser, courseId) " +
-                    "VALUES (?, null)";
+            String query = "INSERT INTO proiectpao.teachers(idUser) " +
+                    "VALUES (?)";
             PreparedStatement preparedStatement = Dao.connection.prepareStatement(query);
             preparedStatement.setLong(1, teacher.getId());
             preparedStatement.executeUpdate();
