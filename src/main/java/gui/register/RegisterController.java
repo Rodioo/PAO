@@ -12,6 +12,7 @@ import javafx.util.Duration;
 import org.jetbrains.annotations.NotNull;
 import pao.student.StudentDao;
 import pao.teacher.TeacherDao;
+import pao.user.UserDao;
 import pao.user.UserService;
 
 import java.io.IOException;
@@ -83,8 +84,6 @@ public class RegisterController{
 
     public void hideConfirmPasswordError() {hideErrorLabel(confirmPasswordErrorLabel);}
 
-
-    //TODO Check for taken username and email in database after implementing
     public void registerUser() throws IOException {
 
         usernameErrorButton.setVisible(!validateUser());
@@ -115,6 +114,9 @@ public class RegisterController{
         if(usernameField.getText().isEmpty())
             return false;
 
+        if(UserDao.getInstance().isUsernameTaken(usernameField.getText()))
+            return false;
+
         return Pattern.compile("^[a-zA-Z0-9]\\w{3,20}$")
                 .matcher(usernameField.getText())
                 .matches();
@@ -122,6 +124,9 @@ public class RegisterController{
 
     private boolean validateEmail() {
         if(emailField.getText().isEmpty())
+            return false;
+
+        if(UserDao.getInstance().isEmailTaken(emailField.getText()))
             return false;
 
         return Pattern.compile("[a-zA-Z0-9][a-zA-Z0-9._]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+")
