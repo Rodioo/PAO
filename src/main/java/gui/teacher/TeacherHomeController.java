@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import pao.teacher.Teacher;
+import pao.teacher.TeacherDao;
 
 import java.io.IOException;
 import java.net.URL;
@@ -36,6 +37,8 @@ public class TeacherHomeController implements Initializable {
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         window = (Stage) usernameLabel.getScene().getWindow();
         window.setScene(scene);
+        CreateCourseController controller = fxmlLoader.getController();
+        controller.initData(teacher);
     }
 
 
