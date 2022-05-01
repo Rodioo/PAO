@@ -42,7 +42,7 @@ public class CreateCourseController {
         previewedImage.setImage(new Image(imageField.getText()));
     }
 
-    public void loadContinueCreateCourseScene() {
+    public void loadCreateChaptersScene() {
 
     }
 }
