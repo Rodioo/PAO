@@ -20,9 +20,8 @@ module pao {
     opens gui.student to javafx.fxml;
     opens gui.teacher to javafx.fxml;
     opens gui.course to javafx.fxml;
-    opens db to javafx.fxml;
-    exports pao.questionInfo;
-    opens pao.questionInfo to javafx.fxml;
+    opens gui.chapter to javafx.fxml;
+    opens gui.question to javafx.fxml;
     exports utils;
     opens utils to javafx.fxml;
 }

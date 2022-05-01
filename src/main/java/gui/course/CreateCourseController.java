@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import pao.course.Course;
 import pao.teacher.Teacher;
 
 import java.io.IOException;
@@ -39,8 +40,12 @@ public class CreateCourseController {
         usernameLabel.setText(this.teacher.getUsername());
     }
 
-    private void checkFields() {
+    private boolean areFieldsEmpty() {
+        titleErrorIcon.setVisible(titleField.getText().isEmpty());
+        descriptionErrorIcon.setVisible(descriptionField.getText().isEmpty());
+        imageErrorIcon.setVisible(imageField.getText().isEmpty());
 
+        return titleErrorIcon.isVisible() || descriptionErrorIcon.isVisible() || imageErrorIcon.isVisible();
     }
 
     public void viewImage() {
@@ -50,11 +55,14 @@ public class CreateCourseController {
     }
 
     public void loadCreateChaptersScene() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(CreateChaptersController.class.getResource("createChapters.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        window = (Stage) usernameLabel.getScene().getWindow();
-        window.setScene(scene);
-        CreateChaptersController controller = fxmlLoader.getController();
-        controller.initData(teacher, titleField.getText(), descriptionField.getText(), imageField.getText());
+        if(!areFieldsEmpty()) {
+            FXMLLoader fxmlLoader = new FXMLLoader(CreateChaptersController.class.getResource("createChapters.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+            window = (Stage) usernameLabel.getScene().getWindow();
+            window.setScene(scene);
+            CreateChaptersController controller = fxmlLoader.getController();
+            Course course = new Course(titleField.getText(), descriptionField.getText(), imageField.getText());
+            controller.initData(teacher, course);
+        }
     }
 }

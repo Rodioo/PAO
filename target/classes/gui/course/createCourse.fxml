@@ -10,7 +10,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.course.CreateCourseController">
    <top>
       <HBox spacing="30.0" style="-fx-background-color: linear-gradient(to right, #E57787, #FF916C); -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px;" BorderPane.alignment="CENTER">
@@ -76,7 +75,7 @@
          <children>
             <Label text="CREATE YOUR COURSE" textFill="#ff916c">
                <VBox.margin>
-                  <Insets left="200.0" />
+                  <Insets left="210.0" />
                </VBox.margin>
                <font>
                   <Font name="Garamond Bold" size="28.0" />
@@ -100,6 +99,14 @@
                         <Insets />
                      </HBox.margin>
                   </TextField>
+                  <Button fx:id="titleErrorIcon" mnemonicParsing="false" style="-fx-background-color: transparent;" visible="false">
+                     <graphic>
+                        <FontAwesomeIcon fill="#ff916c" glyphName="EXCLAMATION_CIRCLE" size="20px" />
+                     </graphic>
+                     <font>
+                        <Font name="Garamond Bold" size="14.0" />
+                     </font>
+                  </Button>
                </children>
                <VBox.margin>
                   <Insets left="40.0" />
@@ -126,6 +133,17 @@
                         <Font name="Garamond" size="18.0" />
                      </font>
                   </TextArea>
+                  <Button fx:id="descriptionErrorIcon" mnemonicParsing="false" style="-fx-background-color: transparent;" visible="false">
+                     <graphic>
+                        <FontAwesomeIcon fill="#ff916c" glyphName="EXCLAMATION_CIRCLE" size="20px" />
+                     </graphic>
+                     <font>
+                        <Font name="Garamond Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="50.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
                <VBox.margin>
                   <Insets left="40.0" />
@@ -149,6 +167,17 @@
                         <Insets left="35.0" />
                      </HBox.margin>
                   </TextField>
+                  <Button fx:id="imageErrorIcon" mnemonicParsing="false" style="-fx-background-color: transparent;" visible="false">
+                     <graphic>
+                        <FontAwesomeIcon fill="#ff916c" glyphName="EXCLAMATION_CIRCLE" size="20px" />
+                     </graphic>
+                     <font>
+                        <Font name="Garamond Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </Button>
                   <Button mnemonicParsing="false" onAction="#viewImage" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="PREVIEW" textAlignment="CENTER" textFill="#fff7f3">
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -166,7 +195,7 @@
                   <Insets left="40.0" />
                </VBox.margin>
             </HBox>
-            <Button mnemonicParsing="false" onAction="#loadContinueCreateCourseScene" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="CONTINUE" textAlignment="CENTER" textFill="#fff7f3">
+            <Button mnemonicParsing="false" onAction="#loadCreateChaptersScene" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="CONTINUE" textAlignment="CENTER" textFill="#fff7f3">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -174,12 +203,12 @@
                   <Font name="Garamond Bold" size="32.0" />
                </font>
                <VBox.margin>
-                  <Insets left="250.0" />
+                  <Insets left="260.0" />
                </VBox.margin>
             </Button>
          </children>
          <BorderPane.margin>
-            <Insets left="30.0" top="40.0" />
+            <Insets left="10.0" top="40.0" />
          </BorderPane.margin>
       </VBox>
    </center>
