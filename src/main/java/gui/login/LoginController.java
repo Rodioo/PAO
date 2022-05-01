@@ -24,16 +24,11 @@ import java.io.IOException;
 
 public class LoginController {
 
-    @FXML
-    private TextField usernameField;
-    @FXML
-    private TextField passwordField;
-    @FXML
-    private Label loginIncorrectLabel;
-    @FXML
-    private Button registerButton;
-    @FXML
-    private Stage window;
+    private @FXML TextField usernameField;
+    private @FXML TextField passwordField;
+    private @FXML Label loginIncorrectLabel;
+    private @FXML Button registerButton;
+    private @FXML Stage window;
 
 
     private void displayErrorLabel(Label errorLabel) {

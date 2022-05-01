@@ -14,6 +14,13 @@ public class Course {
     private AccessType access;
     private List<Chapter> chapters;
 
+    public Course(String name, String imageUrl, String description) {
+        this.id = CourseDao.getInstance().getNextId();
+        this.name = name;
+        this.imageUrl = imageUrl;
+        this.description = description;
+    }
+
     public Course(String name, String imageUrl, String description, AccessType access, List<Chapter> chapters) {
         this.id = CourseDao.getInstance().getNextId();
         this.name = name;
@@ -34,5 +41,13 @@ public class Course {
 
     public long getId() {
         return id;
+    }
+
+    public void setAccess(AccessType access) {
+        this.access = access;
+    }
+
+    public void setChapters(List<Chapter> chapters) {
+        this.chapters = chapters;
     }
 }

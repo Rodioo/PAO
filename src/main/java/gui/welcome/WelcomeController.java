@@ -14,11 +14,8 @@ import java.io.IOException;
 
 public class WelcomeController {
 
-    @FXML
-    private Button getStartedButton;
-    @FXML
-    private static Stage window;
-
+    private @FXML Button getStartedButton;
+    private static @FXML Stage window;
 
     //Loads the next scene (Login in this case)
     public void loadLoginScene() throws IOException {

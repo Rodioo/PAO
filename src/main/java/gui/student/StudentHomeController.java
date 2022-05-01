@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 import pao.student.Student;
 
 import java.net.URL;
@@ -13,15 +12,9 @@ import java.util.ResourceBundle;
 public class StudentHomeController implements Initializable {
 
     private Student student;
-    @FXML
-    private Label usernameLabel;
-    @FXML
-    private StackPane selectCoursePane;
-    @FXML
-    private StackPane continueCoursePane;
-
-
-
+    private @FXML Label usernameLabel;
+    private @FXML StackPane selectCoursePane;
+    private @FXML StackPane continueCoursePane;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -34,6 +27,7 @@ public class StudentHomeController implements Initializable {
         displayCorrectScene();
     }
 
+    //TODO: change if statement so that the user can continue it's course if started, otherwise recommend a new course
     private void displayCorrectScene() {
         if(student.getUsername().equals("ghee")) {
             continueCoursePane.setVisible(false);

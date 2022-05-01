@@ -23,37 +23,21 @@ import java.util.regex.Pattern;
 
 public class RegisterController{
 
-    @FXML
-    private TextField usernameField;
-    @FXML
-    private Button usernameErrorButton;
-    @FXML
-    private Label usernameErrorLabel;
-    @FXML
-    private TextField emailField;
-    @FXML
-    private Button emailErrorButton;
-    @FXML
-    private Label emailErrorLabel;
-    @FXML
-    private PasswordField passwordField;
-    @FXML
-    private Button passwordErrorButton;
-    @FXML
-    private Label passwordErrorLabel;
-    @FXML
-    private PasswordField confirmPasswordField;
-    @FXML
-    private Button confirmPasswordErrorButton;
-    @FXML
-    private Label confirmPasswordErrorLabel;
-    @FXML
-    private ToggleGroup userTypeOptions;
-    @FXML
-    private Label passwordRequirementsLabel;
-    @FXML
-    private Stage window;
-
+    private @FXML TextField usernameField;
+    private @FXML Button usernameErrorButton;
+    private @FXML Label usernameErrorLabel;
+    private @FXML TextField emailField;
+    private @FXML Button emailErrorButton;
+    private @FXML Label emailErrorLabel;
+    private @FXML PasswordField passwordField;
+    private @FXML Button passwordErrorButton;
+    private @FXML Label passwordErrorLabel;
+    private @FXML PasswordField confirmPasswordField;
+    private @FXML Button confirmPasswordErrorButton;
+    private @FXML Label confirmPasswordErrorLabel;
+    private @FXML ToggleGroup userTypeOptions;
+    private @FXML Label passwordRequirementsLabel;
+    private @FXML Stage window;
     private long userId;
 
     private void displayErrorLabel(Label errorLabel) {
