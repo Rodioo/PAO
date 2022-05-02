@@ -3,6 +3,7 @@ package pao.course;
 import pao.chapter.Chapter;
 import utils.AccessType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Course {
@@ -14,11 +15,13 @@ public class Course {
     private AccessType access;
     private List<Chapter> chapters;
 
-    public Course(String name, String description, String imageUrl) {
+    public Course(String name, String description, String imageUrl, AccessType access) {
         this.id = CourseDao.getInstance().getNextId();
         this.name = name;
         this.description = description;
         this.imageUrl = imageUrl;
+        this.access = access;
+        this.chapters = new ArrayList<>();
     }
 
     public Course(String name, String description, String imageUrl, AccessType access, List<Chapter> chapters) {
@@ -49,5 +52,17 @@ public class Course {
 
     public void setChapters(List<Chapter> chapters) {
         this.chapters = chapters;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", access=" + access +
+                ", chapters=" + chapters +
+                '}';
     }
 }

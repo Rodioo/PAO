@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
+<?import java.lang.*?>
 <?import de.jensd.fx.glyphs.fontawesome.*?>
 <?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.course.CreateCourseController">
    <top>
@@ -71,7 +70,7 @@
       </HBox>
    </top>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" spacing="40.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="CREATE YOUR COURSE" textFill="#ff916c">
                <VBox.margin>
@@ -195,6 +194,26 @@
                   <Insets left="40.0" />
                </VBox.margin>
             </HBox>
+            <HBox spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" text="ACCESS TYPE:" textAlignment="CENTER">
+                     <font>
+                        <Font name="Garamond Bold" size="22.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="2.5" top="2.5" />
+                     </padding>
+                  </Label>
+                  <ChoiceBox fx:id="accessChoice" prefWidth="150.0">
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                  </ChoiceBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="40.0" />
+               </VBox.margin>
+            </HBox>
             <Button mnemonicParsing="false" onAction="#loadCreateChaptersScene" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="CONTINUE" textAlignment="CENTER" textFill="#fff7f3">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -208,7 +227,7 @@
             </Button>
          </children>
          <BorderPane.margin>
-            <Insets left="10.0" top="40.0" />
+            <Insets left="10.0" top="20.0" />
          </BorderPane.margin>
       </VBox>
    </center>

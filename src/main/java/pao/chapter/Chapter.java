@@ -3,6 +3,7 @@ package pao.chapter;
 import pao.question.Question;
 import pao.question.QuestionDao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -12,6 +13,13 @@ public class Chapter {
     private String title;
     private String text;
     private List<Question> questions;
+
+    public Chapter(String title, String text) {
+        this.id = QuestionDao.getInstance().getNextId();
+        this.title = title;
+        this.text = text;
+        this.questions = new ArrayList<>();
+    }
 
     public Chapter(String title, String text, List<Question> questions) {
         this.id = QuestionDao.getInstance().getNextId();
@@ -41,5 +49,9 @@ public class Chapter {
 
     public List<Question> getQuestions() {
         return questions;
+    }
+
+    public void addQuestion(Question question) {
+        this.questions.add(question);
     }
 }

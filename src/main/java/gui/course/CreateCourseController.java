@@ -5,15 +5,13 @@ import gui.chapter.CreateChaptersController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import pao.course.Course;
 import pao.teacher.Teacher;
+import utils.AccessType;
 
 import java.io.IOException;
 
@@ -33,11 +31,14 @@ public class CreateCourseController {
     private @FXML TextField imageField;
     private @FXML Button imageErrorIcon;
     private @FXML ImageView previewedImage;
+    private @FXML ChoiceBox<AccessType> accessChoice;
     private static @FXML Stage window;
 
     public void initData(Teacher teacher) {
         this.teacher = teacher;
         usernameLabel.setText(this.teacher.getUsername());
+        accessChoice.getItems().addAll(AccessType.FREE, AccessType.PREMIUM, AccessType.PRIVATE);
+        accessChoice.setValue(AccessType.PRIVATE);
     }
 
     private boolean areFieldsEmpty() {
@@ -49,11 +50,15 @@ public class CreateCourseController {
     }
 
     public void viewImage() {
-        if(imageField.getText().isEmpty())
+        if (imageField.getText().isEmpty())
             return;
-        previewedImage.setImage(new Image(imageField.getText()));
+        try {
+            previewedImage.setImage(new Image(imageField.getText()));
+            imageErrorIcon.setVisible(false);
+        }catch (IllegalArgumentException exception) {
+            imageErrorIcon.setVisible(true);
+        }
     }
-
     public void loadCreateChaptersScene() throws IOException {
         if(!areFieldsEmpty()) {
             FXMLLoader fxmlLoader = new FXMLLoader(CreateChaptersController.class.getResource("createChapters.fxml"));
@@ -61,7 +66,7 @@ public class CreateCourseController {
             window = (Stage) usernameLabel.getScene().getWindow();
             window.setScene(scene);
             CreateChaptersController controller = fxmlLoader.getController();
-            Course course = new Course(titleField.getText(), descriptionField.getText(), imageField.getText());
+            Course course = new Course(titleField.getText(), descriptionField.getText(), imageField.getText(), accessChoice.getValue());
             controller.initData(teacher, course);
         }
     }
