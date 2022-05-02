@@ -54,4 +54,16 @@ public final class Question {
     public String getAnswer() {
         return answer;
     }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id=" + id +
+                ", text='" + text + '\'' +
+                ", difficulty=" + difficulty +
+                ", rewardPoints=" + rewardPoints +
+                ", options=" + options +
+                ", answer='" + answer + '\'' +
+                '}';
+    }
 }

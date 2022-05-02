@@ -79,7 +79,7 @@
                   <Font name="Garamond Bold" size="28.0" />
                </font>
                <VBox.margin>
-                  <Insets left="230.0" />
+                  <Insets left="240.0" />
                </VBox.margin>
             </Label>
             <HBox spacing="20.0">
@@ -179,7 +179,7 @@
                   <Insets left="40.0" />
                </VBox.margin>
             </HBox>
-            <Button mnemonicParsing="false" onAction="#loadTeacherHomeScene" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="FINISH" textAlignment="CENTER" textFill="#fff7f3">
+            <Button mnemonicParsing="false" onAction="#loadTeacherHomeScene" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="ADD CHAPTER" textAlignment="CENTER" textFill="#fff7f3">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -187,7 +187,7 @@
                   <Font name="Garamond Bold" size="32.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="20.0" left="300.0" />
+                  <Insets bottom="20.0" left="250.0" />
                </VBox.margin>
             </Button>
          </children>

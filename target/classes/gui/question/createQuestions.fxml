@@ -1,14 +1,282 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="gui.question.CreateQuestions"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.question.CreateQuestionsController">
+   <top>
+      <HBox spacing="30.0" style="-fx-background-color: linear-gradient(to right, #E57787, #FF916C); -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="PROFILE" textFill="#fff7f3">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Garamond Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" top="5.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label layoutX="10.0" layoutY="10.0" text="COURSES" textFill="#fff7f3">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Garamond Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" top="5.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="usernameLabel" alignment="CENTER_RIGHT" layoutX="255.0" layoutY="10.0" prefHeight="32.0" prefWidth="250.0" textFill="#fff7f3">
+               <font>
+                  <Font name="Garamond Bold" size="21.0" />
+               </font>
+               <padding>
+                  <Insets bottom="2.5" top="2.5" />
+               </padding>
+               <HBox.margin>
+                  <Insets left="150.0" right="-5.0" />
+               </HBox.margin>
+            </Label>
+            <Label style="-fx-border-color: #fff7f3; -fx-border-width: 0px 0px 0px 2px;" text="LOGOUT" textFill="#fff7f3">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Garamond Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="25.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets bottom="5.0" right="10.0" top="5.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="25.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="CREATE A QUESTION" textFill="#ff916c">
+               <font>
+                  <Font name="Garamond Bold" size="28.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="240.0" />
+               </VBox.margin>
+            </Label>
+            <HBox spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" text="TEXT:" textAlignment="CENTER">
+                     <font>
+                        <Font name="Garamond Bold" size="22.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="2.5" top="2.5" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets top="35.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextArea fx:id="textField" maxHeight="150.0" maxWidth="422.0" prefHeight="100.0" prefWidth="420.0" promptText="Text" style="-fx-background-color: transparent; -fx-border-color: #FF916C; -fx-border-width: 0px 0px 2px 0px;" wrapText="true">
+                     <font>
+                        <Font name="Garamond" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </TextArea>
+                  <Button fx:id="textErrorIcon" mnemonicParsing="false" style="-fx-background-color: transparent;" visible="false">
+                     <font>
+                        <Font name="Garamond Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon fill="#ff916c" glyphName="EXCLAMATION_CIRCLE" size="20px" />
+                     </graphic>
+                     <HBox.margin>
+                        <Insets top="50.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="40.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" text="DIFFICULTY:" textAlignment="CENTER">
+                     <font>
+                        <Font name="Garamond Bold" size="22.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="2.5" top="2.5" />
+                     </padding>
+                  </Label>
+                  <ChoiceBox fx:id="difficultyChoice" prefWidth="150.0">
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                  </ChoiceBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="40.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" text="OPTION 1:" textAlignment="CENTER">
+                     <font>
+                        <Font name="Garamond Bold" size="22.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="2.5" top="2.5" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="option1Field" maxHeight="30.0" maxWidth="300.0" prefWidth="300.0" promptText="Answer" style="-fx-background-color: transparent; -fx-border-color: #FF916C; -fx-border-width: 0px 0px 2px 0px;">
+                     <font>
+                        <Font name="Garamond" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="option1ErrorIcon" mnemonicParsing="false" style="-fx-background-color: transparent;" visible="false">
+                     <font>
+                        <Font name="Garamond Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon fill="#ff916c" glyphName="EXCLAMATION_CIRCLE" size="20px" />
+                     </graphic>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="40.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" text="OPTION 2:" textAlignment="CENTER">
+                     <font>
+                        <Font name="Garamond Bold" size="22.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="2.5" top="2.5" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="option2Field" maxHeight="30.0" maxWidth="300.0" prefWidth="300.0" promptText="Answer" style="-fx-background-color: transparent; -fx-border-color: #FF916C; -fx-border-width: 0px 0px 2px 0px;">
+                     <font>
+                        <Font name="Garamond" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="option2ErrorIcon" mnemonicParsing="false" style="-fx-background-color: transparent;" visible="false">
+                     <font>
+                        <Font name="Garamond Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon fill="#ff916c" glyphName="EXCLAMATION_CIRCLE" size="20px" />
+                     </graphic>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="40.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" text="OPTION 3:" textAlignment="CENTER">
+                     <font>
+                        <Font name="Garamond Bold" size="22.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="2.5" top="2.5" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="option3Field" maxHeight="30.0" maxWidth="300.0" prefWidth="300.0" promptText="Answer" style="-fx-background-color: transparent; -fx-border-color: #FF916C; -fx-border-width: 0px 0px 2px 0px;">
+                     <font>
+                        <Font name="Garamond" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="option3ErrorIcon" mnemonicParsing="false" style="-fx-background-color: transparent;" visible="false">
+                     <font>
+                        <Font name="Garamond Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon fill="#ff916c" glyphName="EXCLAMATION_CIRCLE" size="20px" />
+                     </graphic>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="40.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" text="CORRECT ANSWER:" textAlignment="CENTER">
+                     <font>
+                        <Font name="Garamond Bold" size="22.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="2.5" top="2.5" />
+                     </padding>
+                  </Label>
+                  <ChoiceBox fx:id="correctAnswerChoice" onMouseClicked="#initAnswerData" prefWidth="150.0">
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                  </ChoiceBox>
+                  <Button fx:id="correctAnswerErrorIcon" mnemonicParsing="false" style="-fx-background-color: transparent;" visible="false">
+                     <font>
+                        <Font name="Garamond Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon fill="#ff916c" glyphName="EXCLAMATION_CIRCLE" size="20px" />
+                     </graphic>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="40.0" />
+               </VBox.margin>
+            </HBox>
+            <Button mnemonicParsing="false" onAction="#loadCurrentChapterScene" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="ADD QUESTION" textAlignment="CENTER" textFill="#fff7f3">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Garamond Bold" size="32.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="240.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets left="10.0" top="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>
