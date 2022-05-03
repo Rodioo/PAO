@@ -9,7 +9,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.question.CreateQuestionsController">
    <top>
       <HBox spacing="30.0" style="-fx-background-color: linear-gradient(to right, #E57787, #FF916C); -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px;" BorderPane.alignment="CENTER">
@@ -71,7 +70,7 @@
       </HBox>
    </top>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" spacing="25.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="CREATE A QUESTION" textFill="#ff916c">
                <font>
@@ -79,6 +78,17 @@
                </font>
                <VBox.margin>
                   <Insets left="240.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="questionsLabel" alignment="CENTER" text="0 QUESTIONS ADDED" textAlignment="CENTER">
+               <font>
+                  <Font name="Garamond Bold" size="22.0" />
+               </font>
+               <padding>
+                  <Insets bottom="2.5" top="2.5" />
+               </padding>
+               <VBox.margin>
+                  <Insets left="40.0" />
                </VBox.margin>
             </Label>
             <HBox spacing="20.0">
@@ -262,17 +272,32 @@
                   <Insets left="40.0" />
                </VBox.margin>
             </HBox>
-            <Button mnemonicParsing="false" onAction="#loadCurrentChapterScene" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="ADD QUESTION" textAlignment="CENTER" textFill="#fff7f3">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Garamond Bold" size="32.0" />
-               </font>
+            <HBox spacing="120.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#addQuestion" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="ADD QUESTION" textAlignment="CENTER" textFill="#fff7f3">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Garamond Bold" size="28.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="240.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#loadCurrentChapterScene" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="FINISH" textAlignment="CENTER" textFill="#fff7f3">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Garamond Bold" size="28.0" />
+                     </font>
+                  </Button>
+               </children>
                <VBox.margin>
-                  <Insets left="240.0" />
+                  <Insets left="60.0" />
                </VBox.margin>
-            </Button>
+            </HBox>
          </children>
          <BorderPane.margin>
             <Insets left="10.0" top="10.0" />

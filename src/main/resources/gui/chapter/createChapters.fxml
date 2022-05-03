@@ -152,7 +152,7 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                <children>
-                  <Label fx:id="questionsLabel" alignment="CENTER" text="0 QUESTIONS ADDED" textAlignment="CENTER">
+                  <Label alignment="CENTER" text="ADD A QUESTION FOR THIS CHAPTER" textAlignment="CENTER">
                      <font>
                         <Font name="Garamond Bold" size="22.0" />
                      </font>
@@ -179,17 +179,32 @@
                   <Insets left="40.0" />
                </VBox.margin>
             </HBox>
-            <Button mnemonicParsing="false" onAction="#loadTeacherHomeScene" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="ADD CHAPTER" textAlignment="CENTER" textFill="#fff7f3">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Garamond Bold" size="32.0" />
-               </font>
+            <HBox spacing="120.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#addChapter" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="ADD CHAPTER" textAlignment="CENTER" textFill="#fff7f3">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Garamond Bold" size="32.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="250.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#loadTeacherHomeScene" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="FINISH" textAlignment="CENTER" textFill="#fff7f3">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Garamond Bold" size="32.0" />
+                     </font>
+                  </Button>
+               </children>
                <VBox.margin>
-                  <Insets bottom="20.0" left="250.0" />
+                  <Insets left="80.0" />
                </VBox.margin>
-            </Button>
+            </HBox>
          </children>
       </VBox>
    </center>

@@ -1,22 +1,27 @@
 package gui.question;
 
-import javafx.collections.ObservableList;
+import gui.chapter.CreateChaptersController;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import pao.chapter.Chapter;
 import pao.course.Course;
 import pao.question.Question;
 import pao.teacher.Teacher;
-import utils.AccessType;
 import utils.QuestionDifficulty;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 public class CreateQuestionsController {
 
     private Teacher teacher;
     private Course course;
+    private Chapter chapter;
     private @FXML Label usernameLabel;
+    private @FXML Label questionsLabel;
     private @FXML TextArea textField;
     private @FXML Button textErrorIcon;
     private @FXML ChoiceBox<QuestionDifficulty> difficultyChoice;
@@ -30,9 +35,10 @@ public class CreateQuestionsController {
     private @FXML Button correctAnswerErrorIcon;
     private @FXML Stage window;
 
-    public void initData(Teacher teacher, Course course) {
+    public void initData(Teacher teacher, Course course, Chapter chapter) {
         this.teacher = teacher;
         this.course = course;
+        this.chapter = chapter;
         usernameLabel.setText(this.teacher.getUsername());
         difficultyChoice.getItems().addAll(QuestionDifficulty.UNSPECIFIED, QuestionDifficulty.EASY,
                 QuestionDifficulty.MEDIUM, QuestionDifficulty.HARD);
@@ -55,15 +61,35 @@ public class CreateQuestionsController {
         }
     }
 
-    public void loadCurrentChapterScene() {
+    private void resetFields() {
+        textField.setText(null);
+        option1Field.setText(null);
+        option2Field.setText(null);
+        option3Field.setText(null);
+        correctAnswerChoice.getItems().clear();
+    }
+
+    public void addQuestion() {
         if(!areFieldsEmpty()) {
             correctAnswerErrorIcon.setVisible(correctAnswerChoice.getValue() == null);
-            if(!correctAnswerErrorIcon.isVisible()) {
+            if (!correctAnswerErrorIcon.isVisible()) {
                 Question question = new Question(textField.getText(), difficultyChoice.getValue(),
                         Arrays.asList(option1Field.getText(), option2Field.getText(), option3Field.getText()),
                         correctAnswerChoice.getValue());
-                System.out.println(question);
+                this.chapter.addQuestion(question);
+                questionsLabel.setText(this.chapter.getQuestions().size() + " QUESTIONS ADDED");
+                resetFields();
             }
         }
+    }
+
+    public void loadCurrentChapterScene() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(CreateChaptersController.class.getResource("createChapters.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        window = (Stage) usernameLabel.getScene().getWindow();
+        window.setScene(scene);
+        CreateChaptersController controller = fxmlLoader.getController();
+        controller.initData(teacher, course);
+        controller.initChapter(chapter);
     }
 }

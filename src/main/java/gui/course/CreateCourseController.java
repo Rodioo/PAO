@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import pao.chapter.Chapter;
 import pao.course.Course;
 import pao.teacher.Teacher;
 import utils.AccessType;
@@ -41,6 +42,10 @@ public class CreateCourseController {
         accessChoice.setValue(AccessType.PRIVATE);
     }
 
+    public void initChapter(Chapter chapter) {
+
+    }
+
     private boolean areFieldsEmpty() {
         titleErrorIcon.setVisible(titleField.getText().isEmpty());
         descriptionErrorIcon.setVisible(descriptionField.getText().isEmpty());
@@ -70,4 +75,5 @@ public class CreateCourseController {
             controller.initData(teacher, course);
         }
     }
+
 }

@@ -152,7 +152,7 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                <children>
-                  <Label fx:id="questionsLabel" alignment="CENTER" text="0 QUESTIONS ADDED" textAlignment="CENTER">
+                  <Label alignment="CENTER" text="ADD A QUESTION FOR THIS CHAPTER" textAlignment="CENTER">
                      <font>
                         <Font name="Garamond Bold" size="22.0" />
                      </font>
