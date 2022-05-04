@@ -174,22 +174,65 @@
                         <Insets top="10.0" />
                      </HBox.margin>
                   </Button>
+                  <Button fx:id="questionErrorIcon" mnemonicParsing="false" style="-fx-background-color: transparent;" visible="false">
+                     <font>
+                        <Font name="Garamond Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon fill="#ff916c" glyphName="EXCLAMATION_CIRCLE" size="20px" />
+                     </graphic>
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
                <VBox.margin>
                   <Insets left="40.0" />
                </VBox.margin>
             </HBox>
-            <Button mnemonicParsing="false" onAction="#loadTeacherHomeScene" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="ADD CHAPTER" textAlignment="CENTER" textFill="#fff7f3">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Garamond Bold" size="32.0" />
-               </font>
+            <HBox>
+               <children>
+                  <Button fx:id="chapterErrorIcon" mnemonicParsing="false" style="-fx-background-color: transparent;" visible="false">
+                     <font>
+                        <Font name="Garamond Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon fill="#ff916c" glyphName="EXCLAMATION_CIRCLE" size="20px" />
+                     </graphic>
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#addChapter" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="ADD CHAPTER" textAlignment="CENTER" textFill="#fff7f3">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Garamond Bold" size="32.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="250.0" />
+                     </VBox.margin>
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#loadTeacherHomeScene" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="FINISH" textAlignment="CENTER" textFill="#fff7f3">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Garamond Bold" size="32.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="80.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
                <VBox.margin>
-                  <Insets bottom="20.0" left="250.0" />
+                  <Insets left="40.0" />
                </VBox.margin>
-            </Button>
+            </HBox>
          </children>
       </VBox>
    </center>

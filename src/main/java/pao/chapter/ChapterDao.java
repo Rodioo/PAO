@@ -1,11 +1,12 @@
 package pao.chapter;
 
 import db.Dao;
-import pao.question.Question;
-import pao.question.QuestionDao;
+
 import utils.Countable;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,12 +43,27 @@ public class ChapterDao implements Countable, Dao<Chapter> {
 
     @Override
     public List<Chapter> getAll() {
-        return null;
+        return new ArrayList<>();
     }
 
     @Override
     public long insert(Chapter chapter) {
-        return 0;
+        if(chapter == null)
+            return -1;
+        chapters.add(chapter);
+        try {
+            String query = "INSERT INTO proiectpao.chapters(idChapter, title, text) " +
+                    "VALUES (?, ?, ?);";
+            PreparedStatement preparedStatement = Dao.connection.prepareStatement(query);
+            preparedStatement.setLong(1, chapter.getId());
+            preparedStatement.setString(2, chapter.getTitle());
+            preparedStatement.setString(3, chapter.getText());
+            preparedStatement.executeUpdate();
+        }catch(SQLException e) {
+            System.out.println("Error occurred when inserting the chapter in the database.");
+            System.out.println(e.getMessage());
+        }
+        return chapter.getId();
     }
 
     @Override

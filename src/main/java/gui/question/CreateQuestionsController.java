@@ -6,9 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import pao.auxQuestion.AuxQuestion;
+import pao.auxQuestion.AuxQuestionDao;
 import pao.chapter.Chapter;
 import pao.course.Course;
 import pao.question.Question;
+import pao.question.QuestionDao;
 import pao.teacher.Teacher;
 import utils.QuestionDifficulty;
 
@@ -62,10 +65,10 @@ public class CreateQuestionsController {
     }
 
     private void resetFields() {
-        textField.setText(null);
-        option1Field.setText(null);
-        option2Field.setText(null);
-        option3Field.setText(null);
+        textField.setText("");
+        option1Field.setText("");
+        option2Field.setText("");
+        option3Field.setText("");
         correctAnswerChoice.getItems().clear();
     }
 
@@ -76,6 +79,8 @@ public class CreateQuestionsController {
                 Question question = new Question(textField.getText(), difficultyChoice.getValue(),
                         Arrays.asList(option1Field.getText(), option2Field.getText(), option3Field.getText()),
                         correctAnswerChoice.getValue());
+                QuestionDao.getInstance().insert(question);
+                AuxQuestionDao.getInstance().insert(new AuxQuestion(this.chapter.getId(), question.getId()));
                 this.chapter.addQuestion(question);
                 questionsLabel.setText(this.chapter.getQuestions().size() + " QUESTIONS ADDED");
                 resetFields();

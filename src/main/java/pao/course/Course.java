@@ -46,12 +46,8 @@ public class Course {
         return id;
     }
 
-    public void setAccess(AccessType access) {
-        this.access = access;
-    }
-
-    public void setChapters(List<Chapter> chapters) {
-        this.chapters = chapters;
+    public List<Chapter> getChapters() {
+        return chapters;
     }
 
     @Override

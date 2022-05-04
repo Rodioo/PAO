@@ -1,6 +1,7 @@
 package gui.chapter;
 
 import gui.question.CreateQuestionsController;
+import gui.teacher.TeacherHomeController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,8 +11,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import pao.chapter.Chapter;
+import pao.chapter.ChapterDao;
 import pao.course.Course;
+import pao.course.CourseService;
 import pao.teacher.Teacher;
+import pao.teacher.TeacherDao;
 
 import java.io.IOException;
 
@@ -25,12 +29,15 @@ public class CreateChaptersController {
     private @FXML Button titleErrorIcon;
     private @FXML TextArea textField;
     private @FXML Button textErrorIcon;
+    private @FXML Button questionErrorIcon;
+    private @FXML Button chapterErrorIcon;
     private @FXML Stage window;
 
     public void initData(Teacher teacher, Course course) {
         this.teacher = teacher;
         this.course = course;
         usernameLabel.setText(this.teacher.getUsername());
+        window = (Stage) usernameLabel.getScene().getWindow();
     }
 
     public void initChapter(Chapter chapter) {
@@ -46,12 +53,17 @@ public class CreateChaptersController {
         return titleErrorIcon.isVisible() || textErrorIcon.isVisible();
     }
 
+    private void resetFields() {
+        textField.setText("");
+        textField.setText("");
+    }
+
     public void loadQuestionScene() throws IOException {
         if(!areFieldsEmpty()) {
             chapter = new Chapter(titleField.getText(), textField.getText());
+            ChapterDao.getInstance().insert(chapter);
             FXMLLoader fxmlLoader = new FXMLLoader(CreateQuestionsController.class.getResource("createQuestions.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-            window = (Stage) usernameLabel.getScene().getWindow();
             window.setScene(scene);
             CreateQuestionsController controller = fxmlLoader.getController();
             controller.initData(teacher, course, chapter);
@@ -59,15 +71,32 @@ public class CreateChaptersController {
 
     }
 
-    //TODO: Finish adding chapter to course and add it to database
     public void addChapter() {
         if(!areFieldsEmpty()) {
-
+            CourseService courseService = new CourseService(course);
+            if(courseService.addChapter(chapter)) {
+                chapterErrorIcon.setVisible(false);
+                questionErrorIcon.setVisible(false);
+                resetFields();
+            }
+            else {
+                questionErrorIcon.setVisible(true);
+            }
         }
     }
 
-    public void loadTeacherHomeScene() {
-        if(areFieldsEmpty())
-            return;
+    //TODO:Add the course to the database in aux_course and course
+    public void loadTeacherHomeScene() throws IOException {
+        if(!this.course.getChapters().isEmpty()) {
+            chapterErrorIcon.setVisible(false);
+            FXMLLoader fxmlLoader = new FXMLLoader(TeacherHomeController.class.getResource("teacherHome.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+            window.setScene(scene);
+            TeacherHomeController controller = fxmlLoader.getController();
+            controller.initData(teacher);
+        }
+        else {
+            chapterErrorIcon.setVisible(true);
+        }
     }
 }

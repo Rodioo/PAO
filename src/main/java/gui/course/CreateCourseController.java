@@ -42,10 +42,6 @@ public class CreateCourseController {
         accessChoice.setValue(AccessType.PRIVATE);
     }
 
-    public void initChapter(Chapter chapter) {
-
-    }
-
     private boolean areFieldsEmpty() {
         titleErrorIcon.setVisible(titleField.getText().isEmpty());
         descriptionErrorIcon.setVisible(descriptionField.getText().isEmpty());
