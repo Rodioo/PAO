@@ -10,12 +10,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import pao.chapter.Chapter;
-import pao.chapter.ChapterDao;
+import pao.chapter.Chapter;;
 import pao.course.Course;
 import pao.course.CourseService;
 import pao.teacher.Teacher;
-import pao.teacher.TeacherDao;
 
 import java.io.IOException;
 
@@ -54,14 +52,14 @@ public class CreateChaptersController {
     }
 
     private void resetFields() {
-        textField.setText("");
+        titleField.setText("");
         textField.setText("");
     }
 
     public void loadQuestionScene() throws IOException {
         if(!areFieldsEmpty()) {
-            chapter = new Chapter(titleField.getText(), textField.getText());
-            ChapterDao.getInstance().insert(chapter);
+            CourseService courseService = new CourseService(course);
+            chapter = courseService.createChapter(titleField.getText(), textField.getText());
             FXMLLoader fxmlLoader = new FXMLLoader(CreateQuestionsController.class.getResource("createQuestions.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 800, 600);
             window.setScene(scene);
@@ -73,11 +71,11 @@ public class CreateChaptersController {
 
     public void addChapter() {
         if(!areFieldsEmpty()) {
-            CourseService courseService = new CourseService(course);
-            if(courseService.addChapter(chapter)) {
+            if(chapter != null) {
                 chapterErrorIcon.setVisible(false);
                 questionErrorIcon.setVisible(false);
                 resetFields();
+                System.out.println(chapter);
             }
             else {
                 questionErrorIcon.setVisible(true);

@@ -28,6 +28,13 @@ public class Chapter {
         this.questions = questions;
     }
 
+    public Chapter(long id, String title, String text) {
+        this.id = id;
+        this.title = title;
+        this.text = text;
+        this.questions = new ArrayList<>();
+    }
+
     public Chapter(long id, String title, String text, List<Question> questions) {
         this.id = id;
         this.title = title;

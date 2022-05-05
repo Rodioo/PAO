@@ -1,8 +1,6 @@
 package pao.teacher;
 
 import db.Dao;
-import pao.course.Course;
-import pao.course.CourseDao;
 import pao.user.User;
 import pao.user.UserDao;
 
@@ -32,7 +30,7 @@ public class TeacherDao implements Dao<Teacher> {
         User user = UserDao.getInstance().rowToObject(resultSet);
         //TODO: Add the Course table and UI of a teacher creating a course
         //Course course = CourseDao.getInstance().getById(courseId);
-        return new Teacher(user, null);
+        return new Teacher(user, new ArrayList<>());
     }
 
     @Override

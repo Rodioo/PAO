@@ -33,17 +33,33 @@ public class Course {
         this.chapters = chapters;
     }
 
-    public Course(long id, String name, String description, String imageUrl, AccessType access, List<Chapter> chapters) {
+    public Course(long id, String name, String description, String imageUrl, AccessType access) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.imageUrl = imageUrl;
         this.access = access;
-        this.chapters = chapters;
+        this.chapters = new ArrayList<>();
     }
 
     public long getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public AccessType getAccess() {
+        return access;
     }
 
     public List<Chapter> getChapters() {

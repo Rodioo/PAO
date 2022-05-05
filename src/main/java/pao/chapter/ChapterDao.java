@@ -2,6 +2,8 @@ package pao.chapter;
 
 import db.Dao;
 
+import pao.course.Course;
+import utils.AccessType;
 import utils.Countable;
 
 import java.sql.PreparedStatement;
@@ -33,17 +35,40 @@ public class ChapterDao implements Countable, Dao<Chapter> {
 
     @Override
     public Chapter rowToObject(ResultSet resultSet) {
-        return null;
+        try{
+            long id = resultSet.getLong("idChapter");
+            String title = resultSet.getString("title");
+            String text = resultSet.getString("text");
+            return new Chapter(id, title, text);
+        }catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
     @Override
     public Chapter getById(long id) {
-        return null;
+        return chapters.stream()
+                .filter(chapter -> chapter.getId() == id)
+                .findAny().orElse(null);
     }
 
     @Override
     public List<Chapter> getAll() {
-        return new ArrayList<>();
+        List<Chapter> chapterList = new ArrayList<>();
+        try{
+            String query = "SELECT * FROM proiectpao.chapters;";
+            PreparedStatement preparedStatement = Dao.connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()) {
+                Chapter chapter = rowToObject(resultSet);
+                chapterList.add(chapter);
+            }
+        }catch (SQLException e) {
+            System.out.println("Error occurred when getting the courses from the database.");
+            System.out.println(e.getMessage());
+        }
+        return chapterList;
     }
 
     @Override

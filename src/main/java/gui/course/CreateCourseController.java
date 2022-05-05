@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import pao.chapter.Chapter;
 import pao.course.Course;
 import pao.teacher.Teacher;
+import pao.teacher.TeacherService;
 import utils.AccessType;
 
 import java.io.IOException;
@@ -62,13 +63,19 @@ public class CreateCourseController {
     }
     public void loadCreateChaptersScene() throws IOException {
         if(!areFieldsEmpty()) {
+            TeacherService teacherService = new TeacherService(teacher);
+            Course course = teacherService.createCourse(
+                    titleField.getText(),
+                    descriptionField.getText(),
+                    imageField.getText(),
+                    accessChoice.getValue());
             FXMLLoader fxmlLoader = new FXMLLoader(CreateChaptersController.class.getResource("createChapters.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 800, 600);
             window = (Stage) usernameLabel.getScene().getWindow();
             window.setScene(scene);
             CreateChaptersController controller = fxmlLoader.getController();
-            Course course = new Course(titleField.getText(), descriptionField.getText(), imageField.getText(), accessChoice.getValue());
             controller.initData(teacher, course);
+            System.out.println(course);
         }
     }
 

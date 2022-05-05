@@ -1,9 +1,14 @@
 package pao.course;
 
 import db.Dao;
+import pao.question.Question;
+import utils.AccessType;
 import utils.Countable;
+import utils.QuestionDifficulty;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +34,22 @@ public class CourseDao implements Countable, Dao<Course> {
 
     @Override
     public Course rowToObject(ResultSet resultSet) {
-        return null;
+        try{
+            long id = resultSet.getLong("idCourse");
+            String name = resultSet.getString("name");
+            String imageUrl = resultSet.getString("imageUrl");
+            String description = resultSet.getString("description");
+            String accessTemp = resultSet.getString("access");
+            AccessType accessType = switch (accessTemp.toUpperCase()) {
+                case "FREE" -> AccessType.FREE;
+                case "PREMIUM" -> AccessType.PREMIUM;
+                default -> AccessType.PRIVATE;
+            };
+            return new Course(id,name, imageUrl, description, accessType);
+        }catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
     @Override
@@ -46,12 +66,42 @@ public class CourseDao implements Countable, Dao<Course> {
 
     @Override
     public List<Course> getAll() {
-        return new ArrayList<>();
+        List<Course> courseList = new ArrayList<>();
+        try{
+            String query = "SELECT * FROM proiectpao.courses;";
+            PreparedStatement preparedStatement = Dao.connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()) {
+                Course course = rowToObject(resultSet);
+                courseList.add(course);
+            }
+        }catch (SQLException e) {
+            System.out.println("Error occurred when getting the courses from the database.");
+            System.out.println(e.getMessage());
+        }
+        return courseList;
     }
 
     @Override
     public long insert(Course course) {
-        return 0;
+        if(course == null)
+            return -1;
+        courses.add(course);
+        try {
+            String query = "INSERT INTO proiectpao.courses(idCourse, name, imageUrl, description, access) " +
+                    "VALUES (?, ?, ?, ?, ?);";
+            PreparedStatement preparedStatement = Dao.connection.prepareStatement(query);
+            preparedStatement.setLong(1, course.getId());
+            preparedStatement.setString(2, course.getName());
+            preparedStatement.setString(3, course.getImageUrl());
+            preparedStatement.setString(4, course.getDescription());
+            preparedStatement.setString(5, course.getAccess().toString());
+            preparedStatement.executeUpdate();
+        }catch(SQLException e) {
+            System.out.println("Error occurred when inserting the course in the database.");
+            System.out.println(e.getMessage());
+        }
+        return course.getId();
     }
 
     @Override
