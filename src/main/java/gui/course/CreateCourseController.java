@@ -9,7 +9,6 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import pao.chapter.Chapter;
 import pao.course.Course;
 import pao.teacher.Teacher;
 import pao.teacher.TeacherService;
@@ -17,11 +16,10 @@ import utils.AccessType;
 
 import java.io.IOException;
 
-//TODO:Make UI of course and add it to the database
-//TODO: Create Chapter model, repository and table in the database
-//TODO: Create Chapter scene and controller and bind it to course
-//TODO: Create Question model, repository and table in the database
-//TODO: Create Question scene and controller and bind it to Chapter
+//TODO: Add validations for the input
+// (description 15-45 characters)
+// (title max 20 characters)
+// (url start with http or https then :// stuff end with .png /.jpg / .jpeg
 public class CreateCourseController {
 
     private Teacher teacher;

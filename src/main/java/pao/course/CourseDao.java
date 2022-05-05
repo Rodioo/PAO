@@ -1,16 +1,18 @@
 package pao.course;
 
 import db.Dao;
-import pao.question.Question;
+import pao.auxChapter.AuxChapterDao;
+import pao.chapter.Chapter;
+import pao.chapter.ChapterDao;
 import utils.AccessType;
 import utils.Countable;
-import utils.QuestionDifficulty;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CourseDao implements Countable, Dao<Course> {
 
@@ -45,7 +47,9 @@ public class CourseDao implements Countable, Dao<Course> {
                 case "PREMIUM" -> AccessType.PREMIUM;
                 default -> AccessType.PRIVATE;
             };
-            return new Course(id,name, imageUrl, description, accessType);
+            List<Long> chapterIds = AuxChapterDao.getInstance().getAllChaptersByCourseId(id);
+            List<Chapter> chapters = ChapterDao.getInstance().getChaptersByIds(chapterIds);
+            return new Course(id, name, description, imageUrl, accessType, chapters);
         }catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;
@@ -60,8 +64,10 @@ public class CourseDao implements Countable, Dao<Course> {
     }
 
     //TODO: Query to get all courses using the aux_courses table, id_teacher and course table
-    public List<Course> getCoursesByTeacherId(long id) {
-        return null;
+    public List<Course> getCoursesByTeacherIds(List<Long> auxCourses) {
+        return courses.stream()
+                .filter(course -> auxCourses.contains(course.getId()))
+                .collect(Collectors.toList());
     }
 
     @Override

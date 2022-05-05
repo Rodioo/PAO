@@ -2,8 +2,9 @@ package pao.chapter;
 
 import db.Dao;
 
-import pao.course.Course;
-import utils.AccessType;
+import pao.auxQuestion.AuxQuestionDao;
+import pao.question.Question;
+import pao.question.QuestionDao;
 import utils.Countable;
 
 import java.sql.PreparedStatement;
@@ -11,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ChapterDao implements Countable, Dao<Chapter> {
 
@@ -39,7 +41,9 @@ public class ChapterDao implements Countable, Dao<Chapter> {
             long id = resultSet.getLong("idChapter");
             String title = resultSet.getString("title");
             String text = resultSet.getString("text");
-            return new Chapter(id, title, text);
+            List<Long> questionsIds = AuxQuestionDao.getInstance().getAllQuestionsIdByChapterId(id);
+            List<Question> questions = QuestionDao.getInstance().getQuestionsByIds(questionsIds);
+            return new Chapter(id, title, text, questions);
         }catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;
@@ -51,6 +55,12 @@ public class ChapterDao implements Countable, Dao<Chapter> {
         return chapters.stream()
                 .filter(chapter -> chapter.getId() == id)
                 .findAny().orElse(null);
+    }
+
+    public List<Chapter> getChaptersByIds(List<Long> auxChapters) {
+        return chapters.stream()
+                .filter(chapter -> auxChapters.contains(chapter.getId()))
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -65,7 +75,7 @@ public class ChapterDao implements Countable, Dao<Chapter> {
                 chapterList.add(chapter);
             }
         }catch (SQLException e) {
-            System.out.println("Error occurred when getting the courses from the database.");
+            System.out.println("Error occurred when getting the chapters from the database.");
             System.out.println(e.getMessage());
         }
         return chapterList;

@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AuxCourseDao implements Dao<AuxCourse> {
 
@@ -28,7 +29,14 @@ public class AuxCourseDao implements Dao<AuxCourse> {
 
     @Override
     public AuxCourse rowToObject(ResultSet resultSet) {
-        return null;
+        try{
+            long idTeacher = resultSet.getLong("idTeacher");
+            long idCourse = resultSet.getLong("idCourse");
+            return new AuxCourse(idTeacher, idCourse);
+        }catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
     @Override
@@ -36,9 +44,36 @@ public class AuxCourseDao implements Dao<AuxCourse> {
         return null;
     }
 
+    public long getTeacherIdByCourseId(long id) {
+        return auxCourses.stream()
+                .filter(auxCourse -> auxCourse.getIdCourse() == id)
+                .map(AuxCourse::getIdTeacher)
+                .findAny().orElse(-1L);
+    }
+
+    public List<Long> getAllCoursesByTeacherId(long id) {
+        return auxCourses.stream()
+                .filter(auxCourse -> auxCourse.getIdTeacher() == id)
+                .map(AuxCourse::getIdCourse)
+                .collect(Collectors.toList());
+    }
+
     @Override
     public List<AuxCourse> getAll() {
-        return new ArrayList<>();
+        List<AuxCourse> auxCourseList = new ArrayList<>();
+        try{
+            String query = "SELECT * FROM proiectpao.aux_courses;";
+            PreparedStatement preparedStatement = Dao.connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()) {
+                AuxCourse auxCourse = rowToObject(resultSet);
+                auxCourseList.add(auxCourse);
+            }
+        }catch (SQLException e) {
+            System.out.println("Error occurred when getting the aux_courses from the database.");
+            System.out.println(e.getMessage());
+        }
+        return auxCourseList;
     }
 
     @Override

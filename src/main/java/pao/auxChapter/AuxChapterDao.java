@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AuxChapterDao implements Dao<AuxChapter> {
 
@@ -26,7 +27,14 @@ public class AuxChapterDao implements Dao<AuxChapter> {
 
     @Override
     public AuxChapter rowToObject(ResultSet resultSet) {
-        return null;
+        try{
+            long idCourse = resultSet.getLong("idCourse");
+            long idChapter = resultSet.getLong("idChapter");
+            return new AuxChapter(idCourse, idChapter);
+        }catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
     @Override
@@ -34,9 +42,29 @@ public class AuxChapterDao implements Dao<AuxChapter> {
         return null;
     }
 
+    public List<Long> getAllChaptersByCourseId(long id) {
+        return auxChapters.stream()
+                .filter(auxChapter -> auxChapter.getIdCourse() == id)
+                .map(AuxChapter::getIdChapter)
+                .collect(Collectors.toList());
+    }
+
     @Override
     public List<AuxChapter> getAll() {
-        return new ArrayList<>();
+        List<AuxChapter> auxChapterList = new ArrayList<>();
+        try{
+            String query = "SELECT * FROM proiectpao.aux_chapters;";
+            PreparedStatement preparedStatement = Dao.connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()) {
+                AuxChapter auxChapter = rowToObject(resultSet);
+                auxChapterList.add(auxChapter);
+            }
+        }catch (SQLException e) {
+            System.out.println("Error occurred when getting the aux_chapters from the database.");
+            System.out.println(e.getMessage());
+        }
+        return auxChapterList;
     }
 
     @Override

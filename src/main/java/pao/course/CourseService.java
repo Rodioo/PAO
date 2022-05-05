@@ -2,8 +2,12 @@ package pao.course;
 
 import pao.auxChapter.AuxChapter;
 import pao.auxChapter.AuxChapterDao;
+import pao.auxCourse.AuxCourseDao;
 import pao.chapter.Chapter;
 import pao.chapter.ChapterDao;
+import pao.teacher.Teacher;
+import pao.teacher.TeacherDao;
+import utils.TeacherNotFoundException;
 
 public class CourseService {
 
@@ -21,4 +25,23 @@ public class CourseService {
         return chapter;
     }
 
+    public String getCourseTeacherName() {
+        long teacherId = AuxCourseDao.getInstance().getTeacherIdByCourseId(course.getId());
+        if(teacherId == -1)
+            throw new TeacherNotFoundException("Course with id " + course.getId() + " does not have a teacher.");
+        Teacher teacher = TeacherDao.getInstance().getById(teacherId);
+        return teacher.getUsername();
+    }
+
+    public int getCourseNumberOfChapters() {
+        return course.getChapters().size();
+    }
+
+    public int getCourseNumberOfQuestions() {
+        int numOfQuestions = 0;
+        for(Chapter chapter : course.getChapters()) {
+            numOfQuestions += chapter.getQuestions().size();
+        }
+        return numOfQuestions;
+    }
 }

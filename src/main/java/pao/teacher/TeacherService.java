@@ -5,6 +5,7 @@ import pao.auxCourse.AuxCourseDao;
 import pao.course.Course;
 import pao.course.CourseDao;
 import utils.AccessType;
+import utils.TeacherNotFoundException;
 
 public class TeacherService {
 
@@ -14,7 +15,6 @@ public class TeacherService {
         this.teacher = teacher;
     }
 
-    //TODO: AuxCourseDao for inserting idTeacher and idCourse
     public Course createCourse(String name, String description, String imageURL, AccessType accessType) {
         Course course = new Course(name, description, imageURL, accessType);
         teacher.getCourses().add(course);

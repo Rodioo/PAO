@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 
 public class QuestionDao implements Countable, Dao<Question> {
 
@@ -61,6 +63,12 @@ public class QuestionDao implements Countable, Dao<Question> {
         return questions.stream()
                 .filter(question -> question.getId() == id)
                 .findAny().orElse(null);
+    }
+
+    public List<Question> getQuestionsByIds(List<Long> auxQuestions) {
+        return questions.stream()
+                .filter(question -> auxQuestions.contains(question.getId()))
+                .collect(Collectors.toList());
     }
 
     @Override

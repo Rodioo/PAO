@@ -33,13 +33,13 @@ public class Course {
         this.chapters = chapters;
     }
 
-    public Course(long id, String name, String description, String imageUrl, AccessType access) {
+    public Course(long id, String name, String description, String imageUrl, AccessType access, List<Chapter> chapters) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.imageUrl = imageUrl;
         this.access = access;
-        this.chapters = new ArrayList<>();
+        this.chapters = chapters;
     }
 
     public long getId() {
