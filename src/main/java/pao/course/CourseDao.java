@@ -4,8 +4,8 @@ import db.Dao;
 import pao.auxChapter.AuxChapterDao;
 import pao.chapter.Chapter;
 import pao.chapter.ChapterDao;
-import utils.AccessType;
-import utils.Countable;
+import utils.enums.AccessType;
+import utils.interfaces.Countable;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

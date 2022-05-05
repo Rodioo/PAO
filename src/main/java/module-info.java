@@ -22,6 +22,10 @@ module pao {
     opens gui.course to javafx.fxml;
     opens gui.chapter to javafx.fxml;
     opens gui.question to javafx.fxml;
-    exports utils;
-    opens utils to javafx.fxml;
+    exports utils.enums;
+    opens utils.enums to javafx.fxml;
+    exports utils.exceptions;
+    opens utils.exceptions to javafx.fxml;
+    exports utils.interfaces;
+    opens utils.interfaces to javafx.fxml;
 }

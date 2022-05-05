@@ -13,7 +13,7 @@ import pao.course.Course;
 import pao.question.Question;
 import pao.question.QuestionDao;
 import pao.teacher.Teacher;
-import utils.QuestionDifficulty;
+import utils.enums.QuestionDifficulty;
 
 import java.io.IOException;
 import java.util.Arrays;

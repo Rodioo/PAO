@@ -105,14 +105,11 @@
                               <HBox spacing="10.0">
                                  <children>
                                     <ImageView fx:id="courseImage1" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@images/java.png" />
-                                       </image>
                                        <HBox.margin>
                                           <Insets top="5.0" />
                                        </HBox.margin>
                                     </ImageView>
-                                    <Label fx:id="courseTitle1" text="Core Java" textFill="#56423c">
+                                    <Label fx:id="courseTitle1" textFill="#56423c">
                                        <font>
                                           <Font name="Garamond Bold" size="36.0" />
                                        </font>
@@ -128,7 +125,7 @@
                                     <Insets left="20.0" />
                                  </VBox.margin>
                               </HBox>
-                              <Label fx:id="courseTeacher1" text="Made by Robertino" textFill="#56423c">
+                              <Label fx:id="courseTeacher1" textFill="#56423c">
                                  <font>
                                     <Font name="Garamond Bold" size="21.0" />
                                  </font>
@@ -138,7 +135,7 @@
                               </Label>
                               <HBox spacing="20.0">
                                  <children>
-                                    <Label fx:id="numberOfChapters1" style="-fx-border-color: #56423c; -fx-border-width: 0px 2px 0px 0px;" text="6 CHAPTERS" textFill="#56423c">
+                                    <Label fx:id="numberOfChapters1" style="-fx-border-color: #56423c; -fx-border-width: 0px 2px 0px 0px;" textFill="#56423c">
                                        <font>
                                           <Font name="Garamond Bold" size="18.0" />
                                        </font>
@@ -149,7 +146,7 @@
                                           <Insets right="20.0" />
                                        </padding>
                                     </Label>
-                                    <Label fx:id="numberOfQuestions1" layoutX="121.0" layoutY="10.0" text="40+ QUESTIONS" textFill="#56423c">
+                                    <Label fx:id="numberOfQuestions1" layoutX="121.0" layoutY="10.0" textFill="#56423c">
                                        <font>
                                           <Font name="Garamond Bold" size="18.0" />
                                        </font>
@@ -159,7 +156,7 @@
                                     <Insets left="5.0" top="15.0" />
                                  </VBox.margin>
                               </HBox>
-                              <Label fx:id="courseDescription1" prefHeight="112.0" prefWidth="295.0" text="This course will teach you the fundamentals of the Java programming language." wrapText="true">
+                              <Label fx:id="courseDescription1" prefHeight="112.0" prefWidth="295.0" wrapText="true">
                                  <font>
                                     <Font name="Garamond" size="21.0" />
                                  </font>
@@ -179,7 +176,7 @@
                                                 <Insets left="25.0" />
                                              </VBox.margin>
                                           </ImageView>
-                                          <Label fx:id="courseAccess1" alignment="TOP_CENTER" prefHeight="22.0" prefWidth="100.0" text="FREE" textAlignment="CENTER" textFill="#56423c">
+                                          <Label fx:id="courseAccess1" alignment="TOP_CENTER" prefHeight="22.0" prefWidth="100.0" textAlignment="CENTER" textFill="#56423c">
                                              <font>
                                                 <Font name="Garamond Bold" size="18.0" />
                                              </font>
@@ -217,14 +214,11 @@
                               <HBox spacing="10.0">
                                  <children>
                                     <ImageView fx:id="courseImage2" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@images/spring.png" />
-                                       </image>
                                        <HBox.margin>
                                           <Insets top="5.0" />
                                        </HBox.margin>
                                     </ImageView>
-                                    <Label fx:id="courseTitle2" text="Backend Java" textFill="#56423c">
+                                    <Label fx:id="courseTitle2" textFill="#56423c">
                                        <font>
                                           <Font name="Garamond Bold" size="36.0" />
                                        </font>
@@ -240,7 +234,7 @@
                                     <Insets left="20.0" />
                                  </VBox.margin>
                               </HBox>
-                              <Label fx:id="courseTeacher2" text="Made by Robertino" textFill="#56423c">
+                              <Label fx:id="courseTeacher2" textFill="#56423c">
                                  <font>
                                     <Font name="Garamond Bold" size="21.0" />
                                  </font>
@@ -250,7 +244,7 @@
                               </Label>
                               <HBox spacing="20.0">
                                  <children>
-                                    <Label fx:id="numberOfChapters2" style="-fx-border-color: #56423c; -fx-border-width: 0px 2px 0px 0px;" text="6 CHAPTERS" textFill="#56423c">
+                                    <Label fx:id="numberOfChapters2" style="-fx-border-color: #56423c; -fx-border-width: 0px 2px 0px 0px;" textFill="#56423c">
                                        <font>
                                           <Font name="Garamond Bold" size="18.0" />
                                        </font>
@@ -261,7 +255,7 @@
                                           <Insets />
                                        </HBox.margin>
                                     </Label>
-                                    <Label fx:id="numberOfQuestions2" layoutX="121.0" layoutY="10.0" text="40+ QUESTIONS" textFill="#56423c">
+                                    <Label fx:id="numberOfQuestions2" layoutX="121.0" layoutY="10.0" textFill="#56423c">
                                        <font>
                                           <Font name="Garamond Bold" size="18.0" />
                                        </font>
@@ -271,7 +265,7 @@
                                     <Insets left="5.0" top="15.0" />
                                  </VBox.margin>
                               </HBox>
-                              <Label fx:id="courseDescription2" prefHeight="112.0" prefWidth="295.0" text="Dive into Java Backend programming and develop web applications using Spring Boot." wrapText="true">
+                              <Label fx:id="courseDescription2" prefHeight="112.0" prefWidth="295.0" wrapText="true">
                                  <font>
                                     <Font name="Garamond" size="21.0" />
                                  </font>
@@ -291,7 +285,7 @@
                                                 <Insets left="25.0" />
                                              </VBox.margin>
                                           </ImageView>
-                                          <Label fx:id="courseAccess2" alignment="TOP_CENTER" prefHeight="22.0" prefWidth="100.0" text="PREMIUM" textAlignment="CENTER" textFill="#56423c">
+                                          <Label fx:id="courseAccess2" alignment="TOP_CENTER" prefHeight="22.0" prefWidth="100.0" textAlignment="CENTER" textFill="#56423c">
                                              <font>
                                                 <Font name="Garamond Bold" size="18.0" />
                                              </font>

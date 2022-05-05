@@ -3,19 +3,17 @@ package gui.register;
 import gui.login.LoginController;
 import gui.student.StudentHomeController;
 import gui.teacher.TeacherHomeController;
-import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-import org.controlsfx.glyphfont.FontAwesome;
 import org.jetbrains.annotations.NotNull;
 import pao.student.StudentDao;
 import pao.teacher.TeacherDao;
 import pao.user.UserDao;
 import pao.user.UserService;
+import utils.classes.Transition;
 
 import java.io.IOException;
 import java.util.regex.Pattern;
@@ -40,35 +38,21 @@ public class RegisterController{
     private @FXML Stage window;
     private long userId;
 
-    private void displayErrorLabel(Label errorLabel) {
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), errorLabel);
-        fadeIn.setFromValue(0.0);
-        fadeIn.setToValue(1.0);
-        fadeIn.play();
-    }
+    public void displayUsernameError() {Transition.displayErrorLabel(usernameErrorLabel);}
 
-    private void hideErrorLabel(Label errorLabel) {
-        FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), errorLabel);
-        fadeOut.setFromValue(errorLabel.getOpacity());
-        fadeOut.setToValue(0.0);
-        fadeOut.play();
-    }
+    public void hideUsernameError() {Transition.hideErrorLabel(usernameErrorLabel);}
 
-    public void displayUsernameError() {displayErrorLabel(usernameErrorLabel);}
+    public void displayEmailError() {Transition.displayErrorLabel(emailErrorLabel);}
 
-    public void hideUsernameError() {hideErrorLabel(usernameErrorLabel);}
+    public void hideEmailError() {Transition.hideErrorLabel(emailErrorLabel);}
 
-    public void displayEmailError() {displayErrorLabel(emailErrorLabel);}
+    public void displayPasswordError() {Transition.displayErrorLabel(passwordErrorLabel);}
 
-    public void hideEmailError() {hideErrorLabel(emailErrorLabel);}
+    public void hidePasswordError() {Transition.hideErrorLabel(passwordErrorLabel);}
 
-    public void displayPasswordError() {displayErrorLabel(passwordErrorLabel);}
+    public void displayConfirmPasswordError() {Transition.displayErrorLabel(confirmPasswordErrorLabel);}
 
-    public void hidePasswordError() {hideErrorLabel(passwordErrorLabel);}
-
-    public void displayConfirmPasswordError() {displayErrorLabel(confirmPasswordErrorLabel);}
-
-    public void hideConfirmPasswordError() {hideErrorLabel(confirmPasswordErrorLabel);}
+    public void hideConfirmPasswordError() {Transition.hideErrorLabel(confirmPasswordErrorLabel);}
 
     public void registerUser() throws IOException {
 
@@ -78,11 +62,11 @@ public class RegisterController{
 
         if(validatePassword()) {
             passwordErrorButton.setVisible(false);
-            hideErrorLabel(passwordRequirementsLabel);
+            Transition.hideErrorLabel(passwordRequirementsLabel);
         }
         else {
             passwordErrorButton.setVisible(true);
-            displayErrorLabel(passwordRequirementsLabel);
+            Transition.displayErrorLabel(passwordRequirementsLabel);
         }
 
         confirmPasswordErrorButton.setVisible(!validateConfirmPassword());

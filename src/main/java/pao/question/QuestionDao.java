@@ -1,8 +1,8 @@
 package pao.question;
 
 import db.Dao;
-import utils.Countable;
-import utils.QuestionDifficulty;
+import utils.interfaces.Countable;
+import utils.enums.QuestionDifficulty;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

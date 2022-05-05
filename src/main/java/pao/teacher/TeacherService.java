@@ -4,8 +4,7 @@ import pao.auxCourse.AuxCourse;
 import pao.auxCourse.AuxCourseDao;
 import pao.course.Course;
 import pao.course.CourseDao;
-import utils.AccessType;
-import utils.TeacherNotFoundException;
+import utils.enums.AccessType;
 
 public class TeacherService {
 

@@ -7,7 +7,7 @@ import pao.chapter.Chapter;
 import pao.chapter.ChapterDao;
 import pao.teacher.Teacher;
 import pao.teacher.TeacherDao;
-import utils.TeacherNotFoundException;
+import utils.exceptions.TeacherNotFoundException;
 
 public class CourseService {
 

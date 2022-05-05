@@ -12,22 +12,21 @@ import javafx.stage.Stage;
 import pao.course.Course;
 import pao.teacher.Teacher;
 import pao.teacher.TeacherService;
-import utils.AccessType;
+import utils.classes.Transition;
+import utils.enums.AccessType;
 
 import java.io.IOException;
 
-//TODO: Add validations for the input
-// (description 15-45 characters)
-// (title max 20 characters)
-// (url start with http or https then :// stuff end with .png /.jpg / .jpeg
 public class CreateCourseController {
 
     private Teacher teacher;
     private @FXML Label usernameLabel;
     private @FXML TextField titleField;
     private @FXML Button titleErrorIcon;
+    private @FXML Label titleErrorLabel;
     private @FXML TextArea descriptionField;
     private @FXML Button descriptionErrorIcon;
+    private @FXML Label descriptionErrorLabel;
     private @FXML TextField imageField;
     private @FXML Button imageErrorIcon;
     private @FXML ImageView previewedImage;
@@ -41,12 +40,25 @@ public class CreateCourseController {
         accessChoice.setValue(AccessType.PRIVATE);
     }
 
-    private boolean areFieldsEmpty() {
-        titleErrorIcon.setVisible(titleField.getText().isEmpty());
-        descriptionErrorIcon.setVisible(descriptionField.getText().isEmpty());
+    private boolean isTitleCorrect() {
+        if(titleField.getText().isEmpty())
+            return false;
+        return titleField.getText().length() <= 15;
+    }
+
+    private boolean isDescriptionCorrect() {
+        if(descriptionField.getText().isEmpty())
+            return false;
+        return titleField.getText().length() >= 15 && titleField.getText().length() <= 80;
+    }
+
+
+    private boolean areFieldsCorrect() {
+        titleErrorIcon.setVisible(!isTitleCorrect());
+        descriptionErrorIcon.setVisible(!isDescriptionCorrect());
         imageErrorIcon.setVisible(imageField.getText().isEmpty());
 
-        return titleErrorIcon.isVisible() || descriptionErrorIcon.isVisible() || imageErrorIcon.isVisible();
+        return !titleErrorIcon.isVisible() && !descriptionErrorIcon.isVisible() && !imageErrorIcon.isVisible();
     }
 
     public void viewImage() {
@@ -59,8 +71,17 @@ public class CreateCourseController {
             imageErrorIcon.setVisible(true);
         }
     }
+
+    public void displayTitleError() {Transition.displayErrorLabel(titleErrorLabel);}
+
+    public void hideTitleError() {Transition.hideErrorLabel(titleErrorLabel);}
+
+    public void displayDescriptionError() {Transition.displayErrorLabel(descriptionErrorLabel);}
+
+    public void hideDescriptionError() {Transition.hideErrorLabel(descriptionErrorLabel);}
+
     public void loadCreateChaptersScene() throws IOException {
-        if(!areFieldsEmpty()) {
+        if(areFieldsCorrect()) {
             TeacherService teacherService = new TeacherService(teacher);
             Course course = teacherService.createCourse(
                     titleField.getText(),

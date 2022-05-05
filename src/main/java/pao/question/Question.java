@@ -1,6 +1,6 @@
 package pao.question;
 
-import utils.QuestionDifficulty;
+import utils.enums.QuestionDifficulty;
 
 import java.util.List;
 

@@ -5,7 +5,7 @@ import db.Dao;
 import pao.auxQuestion.AuxQuestionDao;
 import pao.question.Question;
 import pao.question.QuestionDao;
-import utils.Countable;
+import utils.interfaces.Countable;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

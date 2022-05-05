@@ -2,7 +2,7 @@ package pao.user;
 
 import db.Dao;
 import org.jetbrains.annotations.NotNull;
-import utils.Countable;
+import utils.interfaces.Countable;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

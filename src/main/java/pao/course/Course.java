@@ -1,7 +1,7 @@
 package pao.course;
 
 import pao.chapter.Chapter;
-import utils.AccessType;
+import utils.enums.AccessType;
 
 import java.util.ArrayList;
 import java.util.List;

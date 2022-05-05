@@ -98,7 +98,7 @@
                         <Insets />
                      </HBox.margin>
                   </TextField>
-                  <Button fx:id="titleErrorIcon" mnemonicParsing="false" style="-fx-background-color: transparent;" visible="false">
+                  <Button fx:id="titleErrorIcon" mnemonicParsing="false" onMouseEntered="#displayTitleError" onMouseExited="#hideTitleError" style="-fx-background-color: transparent;" visible="false">
                      <graphic>
                         <FontAwesomeIcon fill="#ff916c" glyphName="EXCLAMATION_CIRCLE" size="20px" />
                      </graphic>
@@ -106,6 +106,14 @@
                         <Font name="Garamond Bold" size="14.0" />
                      </font>
                   </Button>
+                  <Label fx:id="titleErrorLabel" opacity="0.0" text="15 CHARACTERS MAX" textAlignment="CENTER" textFill="#900e00">
+                     <font>
+                        <Font name="Garamond Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
                <VBox.margin>
                   <Insets left="40.0" />
@@ -132,7 +140,7 @@
                         <Font name="Garamond" size="18.0" />
                      </font>
                   </TextArea>
-                  <Button fx:id="descriptionErrorIcon" mnemonicParsing="false" style="-fx-background-color: transparent;" visible="false">
+                  <Button fx:id="descriptionErrorIcon" mnemonicParsing="false" onMouseEntered="#displayDescriptionError" onMouseExited="#hideDescriptionError" style="-fx-background-color: transparent;" visible="false">
                      <graphic>
                         <FontAwesomeIcon fill="#ff916c" glyphName="EXCLAMATION_CIRCLE" size="20px" />
                      </graphic>
@@ -143,6 +151,14 @@
                         <Insets top="50.0" />
                      </HBox.margin>
                   </Button>
+                  <Label fx:id="descriptionErrorLabel" opacity="0.0" text="15-80 CHARACTERS" textAlignment="CENTER" textFill="#900e00">
+                     <font>
+                        <Font name="Garamond Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="50.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
                <VBox.margin>
                   <Insets left="40.0" />
