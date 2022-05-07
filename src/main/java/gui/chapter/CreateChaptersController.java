@@ -75,7 +75,6 @@ public class CreateChaptersController {
                 chapterErrorIcon.setVisible(false);
                 questionErrorIcon.setVisible(false);
                 resetFields();
-                System.out.println(chapter);
             }
             else {
                 questionErrorIcon.setVisible(true);

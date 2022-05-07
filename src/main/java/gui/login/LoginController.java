@@ -60,7 +60,7 @@ public class LoginController {
                 }
             }
             else {
-                FXMLLoader fxmlLoader = new FXMLLoader(StudentHomeController.class.getResource("studentHome.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(StudentHomeController.class.getResource("home/studentHome.fxml"));
                 Scene scene = new Scene(fxmlLoader.load(), 800, 600);
                 window.setScene(scene);
                 StudentHomeController controller = fxmlLoader.getController();

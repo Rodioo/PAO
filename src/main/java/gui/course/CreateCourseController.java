@@ -49,9 +49,8 @@ public class CreateCourseController {
     private boolean isDescriptionCorrect() {
         if(descriptionField.getText().isEmpty())
             return false;
-        return titleField.getText().length() >= 15 && titleField.getText().length() <= 80;
+        return descriptionField.getText().length() >= 15 && descriptionField.getText().length() <= 80;
     }
-
 
     private boolean areFieldsCorrect() {
         titleErrorIcon.setVisible(!isTitleCorrect());
@@ -94,7 +93,6 @@ public class CreateCourseController {
             window.setScene(scene);
             CreateChaptersController controller = fxmlLoader.getController();
             controller.initData(teacher, course);
-            System.out.println(course);
         }
     }
 

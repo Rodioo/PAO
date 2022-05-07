@@ -30,7 +30,7 @@ public class StudentDao implements Dao<Student> {
         try{
             int points = resultSet.getInt("points");
             //TODO: Add the CourseInformation table and CourseInformationDao
-            long courseInformationId = resultSet.getInt("courseInformationId");
+            //long courseInformationId = resultSet.getInt("idCourseInformation");
             //CourseInformation courseInformation = CourseInformationDao.getInstance().getById(courseInformationId);
             boolean isPremium = resultSet.getBoolean("isPremium");
             return isPremium ? new PremiumStudent(user, points, null) : new Student(user, points, null);
@@ -52,7 +52,7 @@ public class StudentDao implements Dao<Student> {
     public List<Student> getAll() {
         List<Student> studentList = new ArrayList<>();
         try{
-            String query = "SELECT u.*, s.points, s.courseInformationId, s.isPremium " +
+            String query = "SELECT u.*, s.points, s.isPremium " +
                     "FROM proiectpao.users u , proiectpao.students s " +
                     "WHERE u.idUser = s.idUser;";
             PreparedStatement preparedStatement = Dao.connection.prepareStatement(query);
@@ -76,8 +76,8 @@ public class StudentDao implements Dao<Student> {
             return -1;
         students.add(student);
         try {
-            String query = "INSERT INTO proiectpao.students(idUser, points, courseInformationId, isPremium) " +
-                    "VALUES (?, 0, null, false);";
+            String query = "INSERT INTO proiectpao.students(idUser, points, isPremium) " +
+                    "VALUES (?, 0, false);";
             PreparedStatement preparedStatement = Dao.connection.prepareStatement(query);
             preparedStatement.setLong(1, student.getId());
             preparedStatement.executeUpdate();

@@ -29,6 +29,10 @@ public sealed class Student extends User permits PremiumStudent {
         return courseInformation;
     }
 
+    public void setCourseInformation(CourseInformation courseInformation) {
+        this.courseInformation = courseInformation;
+    }
+
     @Override
     public String toString() {
         return "Student{" +

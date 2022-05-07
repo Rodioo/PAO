@@ -51,7 +51,7 @@
                   <Insets left="150.0" right="-5.0" />
                </HBox.margin>
             </Label>
-            <Label style="-fx-border-color: #fff7f3; -fx-border-width: 0px 0px 0px 2px;" text="LOGOUT" textFill="#fff7f3">
+            <Label onMouseClicked="#logout" style="-fx-border-color: #fff7f3; -fx-border-width: 0px 0px 0px 2px;" text="LOGOUT" textFill="#fff7f3">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

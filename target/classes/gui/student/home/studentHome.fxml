@@ -66,7 +66,7 @@
                   <Insets left="70.0" right="-5.0" />
                </HBox.margin>
             </Label>
-            <Label style="-fx-border-color: #fff7f3; -fx-border-width: 0px 0px 0px 2px;" text="LOGOUT" textFill="#fff7f3">
+            <Label onMouseClicked="#logout" style="-fx-border-color: #fff7f3; -fx-border-width: 0px 0px 0px 2px;" text="LOGOUT" textFill="#fff7f3">
                <font>
                   <Font name="Garamond Bold" size="18.0" />
                </font>
@@ -186,7 +186,7 @@
                                           <Insets left="10.0" top="5.0" />
                                        </HBox.margin>
                                     </VBox>
-                                    <Button mnemonicParsing="false" onAction="#startCourse" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 15px;" text="ENROLL" textAlignment="CENTER" textFill="#fff7f3">
+                                    <Button fx:id="button1" mnemonicParsing="false" onAction="#startCourse" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 15px;" text="ENROLL" textAlignment="CENTER" textFill="#fff7f3">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
@@ -295,7 +295,7 @@
                                           <Insets left="10.0" top="5.0" />
                                        </HBox.margin>
                                     </VBox>
-                                    <Button mnemonicParsing="false" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 15px;" text="ENROLL" textAlignment="CENTER" textFill="#fff7f3">
+                                    <Button fx:id="button2" mnemonicParsing="false" onAction="#startCourse" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 15px;" text="ENROLL" textAlignment="CENTER" textFill="#fff7f3">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
