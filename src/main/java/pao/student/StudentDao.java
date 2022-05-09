@@ -1,6 +1,8 @@
 package pao.student;
 
 import db.Dao;
+import pao.courseInformation.CourseInformation;
+import pao.courseInformation.CourseInformationDao;
 import pao.user.User;
 import pao.user.UserDao;
 
@@ -29,11 +31,11 @@ public class StudentDao implements Dao<Student> {
         User user = UserDao.getInstance().rowToObject(resultSet);
         try{
             int points = resultSet.getInt("points");
-            //TODO: Add the CourseInformation table and CourseInformationDao
-            //long courseInformationId = resultSet.getInt("idCourseInformation");
-            //CourseInformation courseInformation = CourseInformationDao.getInstance().getById(courseInformationId);
+            CourseInformation courseInformation = CourseInformationDao.getInstance()
+                    .getCourseInformationByStudentId(user.getId());
             boolean isPremium = resultSet.getBoolean("isPremium");
-            return isPremium ? new PremiumStudent(user, points, null) : new Student(user, points, null);
+            return isPremium ? new PremiumStudent(user, points, courseInformation)
+                    : new Student(user, points, courseInformation);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;

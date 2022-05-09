@@ -1,53 +1,50 @@
 package pao.courseInformation;
 
-import org.jetbrains.annotations.NotNull;
-import pao.chapter.Chapter;
-import pao.course.Course;
-import pao.student.Student;
 
 public class CourseInformation {
 
     private final long id;
-    private Student student;
-    private Course currentCourse;
-    private Chapter currentChapter;
+    private long idStudent;
+    private long idCourse;
+    private int numberChapter;
 
-    public CourseInformation(Student student, @NotNull Course currentCourse) {
+    public CourseInformation(long idStudent, long idCourse) {
         this.id = CourseInformationDao.getInstance().getNextId();
-        this.student = student;
-        this.currentCourse = currentCourse;
-        this.currentChapter = currentCourse.getChapters().get(0);
+        this.idStudent = idStudent;
+        this.idCourse = idCourse;
+        this.numberChapter = 0;
     }
 
-    public CourseInformation(long id, Student student, @NotNull Course currentCourse, int numberChapter) {
+    public CourseInformation(long id, long idStudent, long idCourse, int numberChapter) {
         this.id = id;
-        this.student = student;
-        this.currentCourse = currentCourse;
-        this.currentChapter = currentCourse.getChapters().get(numberChapter);
+        this.idStudent = idStudent;
+        this.idCourse = idCourse;
+        this.numberChapter = numberChapter;
     }
 
     public long getId() {
         return id;
     }
 
-    public Student getStudent() {
-        return student;
+    public long getIdStudent() {
+        return idStudent;
     }
 
-    public Course getCurrentCourse() {
-        return currentCourse;
+    public long getIdCourse() {
+        return idCourse;
     }
 
-    public Chapter getCurrentChapter() {
-        return currentChapter;
+    public int getNumberChapter() {
+        return numberChapter;
     }
 
     @Override
     public String toString() {
         return "CourseInformation{" +
                 "id=" + id +
-                ", currentCourse=" + currentCourse +
-                ", currentChapter=" + currentChapter +
+                ", idStudent=" + idStudent +
+                ", idCourse=" + idCourse +
+                ", numberChapter=" + numberChapter +
                 '}';
     }
 }

@@ -35,7 +35,7 @@ public class StudentService {
         if(course.getAccess().equals(AccessType.PREMIUM) && !(student instanceof PremiumStudent)) {
             return null;
         }
-        CourseInformation courseInformation = new CourseInformation(student, course);
+        CourseInformation courseInformation = new CourseInformation(student.getId(), course.getId());
         CourseInformationDao.getInstance().insert(courseInformation);
         student.setCourseInformation(courseInformation);
         return courseInformation;

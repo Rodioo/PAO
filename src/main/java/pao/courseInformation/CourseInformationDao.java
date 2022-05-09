@@ -38,11 +38,9 @@ public class CourseInformationDao implements Countable, Dao<CourseInformation> {
         try{
             long id = resultSet.getLong("id");
             long idStudent = resultSet.getLong("idStudent");
-            Student student = StudentDao.getInstance().getById(idStudent);
             long idCourse = resultSet.getLong("idCourse");
-            Course course = CourseDao.getInstance().getById(idCourse);
             int numberChapter = resultSet.getInt("numberChapter");
-            return new CourseInformation(id, student, course, numberChapter);
+            return new CourseInformation(id, idStudent, idCourse, numberChapter);
         }catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;
@@ -56,10 +54,16 @@ public class CourseInformationDao implements Countable, Dao<CourseInformation> {
                 .findAny().orElse(null);
     }
 
-    public CourseInformation getByStudentAndCourse(Student student, Course course) {
+    public CourseInformation getCourseInformationByStudentId(long id) {
         return coursesInformations.stream()
-                .filter(courseInformation -> courseInformation.getStudent().equals(student)
-                        && courseInformation.getCurrentCourse().equals(course))
+                .filter(courseInformation -> courseInformation.getIdStudent() == id)
+                .findAny().orElse(null);
+    }
+
+    public CourseInformation getByStudentAndCourse(long idStudent, long idCourse) {
+        return coursesInformations.stream()
+                .filter(courseInformation -> courseInformation.getIdStudent() == idStudent
+                        && courseInformation.getIdCourse() == idCourse)
                 .findAny().orElse(null);
     }
 
@@ -85,7 +89,7 @@ public class CourseInformationDao implements Countable, Dao<CourseInformation> {
     public long insert(CourseInformation courseInformation) {
         if(courseInformation == null)
             return -1;
-        if(getByStudentAndCourse(courseInformation.getStudent(), courseInformation.getCurrentCourse()) != null) {
+        if(getByStudentAndCourse(courseInformation.getIdStudent(), courseInformation.getIdCourse()) != null) {
             System.out.println("Course information already in database with id " + courseInformation.getId());
             return courseInformation.getId();
         }
@@ -95,8 +99,8 @@ public class CourseInformationDao implements Countable, Dao<CourseInformation> {
                     "VALUES (?, ?, ?);";
             PreparedStatement preparedStatement = Dao.connection.prepareStatement(query);
             preparedStatement.setLong(1, courseInformation.getId());
-            preparedStatement.setLong(2, courseInformation.getStudent().getId());
-            preparedStatement.setLong(3, courseInformation.getCurrentCourse().getId());
+            preparedStatement.setLong(2, courseInformation.getIdStudent());
+            preparedStatement.setLong(3, courseInformation.getIdCourse());
             preparedStatement.executeUpdate();
         }catch(SQLException e) {
             System.out.println("Error occurred when inserting the courseInformation in the database.");
