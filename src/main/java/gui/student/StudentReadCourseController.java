@@ -52,4 +52,8 @@ public class StudentReadCourseController {
 
     }
 
+    public void logout() {
+
+    }
+
 }
