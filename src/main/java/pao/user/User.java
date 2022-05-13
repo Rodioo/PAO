@@ -6,10 +6,10 @@ import pao.teacher.Teacher;
 
 public sealed class User permits Student, Teacher {
 
-    private final long id;
-    private String username;
-    private final String email;
-    private String password;
+    protected final long id;
+    protected String username;
+    protected final String email;
+    protected String password;
 
     public User(String username, String email, String password) {
         this.id = UserDao.getInstance().getNextId();

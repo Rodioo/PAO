@@ -6,8 +6,8 @@ import pao.user.User;
 
 public sealed class Student extends User permits PremiumStudent {
 
-    private int points;
-    private CourseInformation courseInformation;
+    protected int points;
+    protected CourseInformation courseInformation;
 
     public Student(String username, String email, String password) {
         super(username, email, password);
@@ -36,10 +36,10 @@ public sealed class Student extends User permits PremiumStudent {
     @Override
     public String toString() {
         return "Student{" +
-                "id=" + getId() +
-                ", username='" + getUsername() + '\'' +
-                ", email='" + getEmail() + '\'' +
-                ", password='" + getPassword() + '\'' +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 ", points=" + points +
                 ", courseInformation=" + courseInformation +
                 "} ";

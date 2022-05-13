@@ -16,12 +16,12 @@ public final class PremiumStudent extends Student{
     @Override
     public String toString() {
         return "PremiumStudent{" +
-                "id=" + getId() +
-                ", username='" + getUsername() + '\'' +
-                ", email='" + getEmail() + '\'' +
-                ", password='" + getPassword() + '\'' +
-                ", points='" + getPoints() + '\'' +
-                ", courseInformation='" + getCourseInformation() + '\'' +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", points='" + points + '\'' +
+                ", courseInformation='" + courseInformation + '\'' +
                 '}';
     }
 }
