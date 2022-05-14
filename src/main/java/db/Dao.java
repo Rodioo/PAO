@@ -2,6 +2,7 @@ package db;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -17,7 +18,7 @@ public interface Dao<T> {
 
     long insert(T t);
 
-    long update(T t, String[] params);
+    long update(T t, HashMap<String, String> params);
 
     void delete(T t);
 }

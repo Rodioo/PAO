@@ -125,7 +125,7 @@ public class RegisterController{
         FXMLLoader fxmlLoader;
         Scene scene;
         if(userType.equals("STUDENT")) {
-            fxmlLoader = new FXMLLoader(StudentHomeController.class.getResource("studentHome.fxml"));
+            fxmlLoader = new FXMLLoader(StudentHomeController.class.getResource("home/studentHome.fxml"));
             scene = new Scene(fxmlLoader.load(), 800, 600);
             window.setScene(scene);
             StudentHomeController controller = fxmlLoader.getController();

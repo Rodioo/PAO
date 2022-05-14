@@ -38,6 +38,10 @@ public class CourseInformation {
         return numberChapter;
     }
 
+    public void incrementNumberChapter(int addition) {
+        this.numberChapter += addition;
+    }
+
     @Override
     public String toString() {
         return "CourseInformation{" +

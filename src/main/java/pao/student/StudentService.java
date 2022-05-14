@@ -7,6 +7,7 @@ import pao.courseInformation.CourseInformationDao;
 import utils.enums.AccessType;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class StudentService {
@@ -39,5 +40,12 @@ public class StudentService {
         CourseInformationDao.getInstance().insert(courseInformation);
         student.setCourseInformation(courseInformation);
         return courseInformation;
+    }
+
+    public void increasePoints(int points) {
+        student.increasePoints(points);
+        var updateMap = new HashMap<String, String>();
+        updateMap.put("points", String.valueOf(student.getPoints()));
+        StudentDao.getInstance().update(student, updateMap);
     }
 }

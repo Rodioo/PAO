@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -111,7 +112,7 @@ public class CourseDao implements Countable, Dao<Course> {
     }
 
     @Override
-    public long update(Course course, String[] params) {
+    public long update(Course course, HashMap<String, String> params) {
         return 0;
     }
 

@@ -33,6 +33,10 @@ public sealed class Student extends User permits PremiumStudent {
         this.courseInformation = courseInformation;
     }
 
+    public void increasePoints(int points) {
+        this.points += points;
+    }
+
     @Override
     public String toString() {
         return "Student{" +

@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -102,7 +103,7 @@ public class ChapterDao implements Countable, Dao<Chapter> {
     }
 
     @Override
-    public long update(Chapter chapter, String[] params) {
+    public long update(Chapter chapter, HashMap<String, String> params) {
         return 0;
     }
 

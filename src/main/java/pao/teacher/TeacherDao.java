@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class TeacherDao implements Dao<Teacher> {
@@ -86,7 +87,7 @@ public class TeacherDao implements Dao<Teacher> {
     }
 
     @Override
-    public long update(Teacher teacher, String[] params) {
+    public long update(Teacher teacher, HashMap<String, String> params) {
         return 0;
     }
 

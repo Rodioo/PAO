@@ -120,10 +120,10 @@ public class StudentHomeController{
         Course course = CourseDao.getInstance().getById(pickedCourseInformation.getIdCourse());
         Chapter currentChapter = course.getChapters().get(pickedCourseInformation.getNumberChapter());
         chapterName.setText(currentChapter.getTitle());
-        int percentageProgress = pickedCourseInformation.getNumberChapter() / course.getChapters().size() * 100;
+        double percentageProgress = pickedCourseInformation.getNumberChapter() / (double) course.getChapters().size() * 100;
         progressLabel.setText(pickedCourseInformation.getNumberChapter() + " / " + course.getChapters().size() +
-                " (" + percentageProgress + "%) chapters completed.");
-        progressBar.setProgress(percentageProgress);
+                " (" + (int) percentageProgress + "%) chapters completed.");
+        progressBar.setProgress(percentageProgress / 100);
         loadCourseData(course, courseImage, courseTitle, courseTeacher,
                 numberOfChapters, numberOfQuestions, courseDescription, courseAccess);
     }

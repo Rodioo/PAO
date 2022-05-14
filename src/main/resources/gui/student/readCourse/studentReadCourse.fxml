@@ -9,7 +9,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.student.StudentReadCourseController">
    <top>
       <HBox spacing="30.0" style="-fx-background-color: linear-gradient(to right, #E57787, #FF916C); -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px;" BorderPane.alignment="CENTER">
@@ -93,11 +92,8 @@
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
-                     <image>
-                        <Image url="@../home/images/java.png" />
-                     </image>
                   </ImageView>
-                  <Label fx:id="courseTitle" text="Core Java" textFill="#56423c">
+                  <Label fx:id="courseTitle" textFill="#56423c">
                      <font>
                         <Font name="Garamond Bold" size="36.0" />
                      </font>
@@ -113,7 +109,7 @@
                   <Insets left="20.0" />
                </VBox.margin>
             </HBox>
-            <Label fx:id="chapterTitle" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="800.0" text="Introduction to Java" textAlignment="CENTER" textFill="#56423c">
+            <Label fx:id="chapterTitle" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="800.0" textAlignment="CENTER" textFill="#56423c">
                <font>
                   <Font name="Garamond Bold" size="46.0" />
                </font>
@@ -123,7 +119,7 @@
             </Label>
             <HBox prefHeight="350.0" prefWidth="800.0" spacing="10.0">
                <children>
-                  <TextArea fx:id="chapterText" editable="false" maxWidth="-Infinity" prefHeight="252.0" prefWidth="380.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam efficitur cursus euismod. Vestibulum in odio in risus porta sagittis eu et enim. Aenean pellentesque arcu metus, non tristique augue dignissim nec. Curabitur vestibulum dictum vehicula. Sed in ligula ac nisi pretium gravida vitae et turpis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Quisque sodales tortor et dolor commodo, vitae dignissim lacus imperdiet. Sed a ligula interdum, pellentesque urna vitae, posuere massa. Praesent condimentum lectus viverra turpis semper, a laoreet ipsum rhoncus. Suspendisse interdum ornare odio in dignissim. Maecenas tincidunt dui vel sapien tristique porttitor. Curabitur porta velit ultrices metus placerat placerat. Aenean lacus nisi, vehicula quis consequat nec, viverra a ligula. Sed lectus mauris, laoreet ut dui ut, facilisis pretium lacus. Aenean fermentum est ligula, vel pretium ante cursus in." wrapText="true">
+                  <TextArea fx:id="chapterText" editable="false" maxWidth="-Infinity" prefHeight="252.0" prefWidth="380.0" wrapText="true">
                      <font>
                         <Font name="Garamond" size="18.0" />
                      </font>
@@ -133,7 +129,7 @@
                   </TextArea>
                   <VBox prefHeight="252.0" prefWidth="398.0" spacing="10.0">
                      <children>
-                        <Label fx:id="questionTitle" prefHeight="100.0" prefWidth="398.0" text="How do you read a single word from the command line?" textFill="#ff916c" wrapText="true">
+                        <Label fx:id="questionTitle" prefHeight="100.0" prefWidth="398.0" textFill="#ff916c" wrapText="true">
                            <font>
                               <Font name="Garamond Bold" size="18.0" />
                            </font>
@@ -141,9 +137,9 @@
                               <Insets />
                            </VBox.margin>
                         </Label>
-                        <HBox prefHeight="40.0" prefWidth="118.0" spacing="5.0">
+                        <HBox prefHeight="35.0" prefWidth="170.0" spacing="5.0">
                            <children>
-                              <Label fx:id="questionDifficulty" text="EASY: 5" textFill="#56423c">
+                              <Label fx:id="questionDifficulty" prefWidth="115.0" textFill="#56423c">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font>
@@ -158,12 +154,12 @@
                               </ImageView>
                            </children>
                            <VBox.margin>
-                              <Insets left="280.0" top="-20.0" />
+                              <Insets left="240.0" top="-20.0" />
                            </VBox.margin>
                         </HBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
                            <children>
-                              <RadioButton mnemonicParsing="false" prefHeight="40.0" prefWidth="188.0" selected="true" text="scanner.nextString()" textFill="#56423c" wrapText="true">
+                              <RadioButton fx:id="answer1" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="400.0" selected="true" textFill="#56423c" wrapText="true">
                                  <font>
                                     <Font name="Garamond Bold" size="18.0" />
                                  </font>
@@ -171,12 +167,12 @@
                                     <ToggleGroup fx:id="answers" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" prefHeight="40.0" prefWidth="142.0" text="scanner.next()" textFill="#56423c" toggleGroup="$answers" wrapText="true">
+                              <RadioButton fx:id="answer2" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="400.0" textFill="#56423c" toggleGroup="$answers" wrapText="true">
                                  <font>
                                     <Font name="Garamond Bold" size="18.0" />
                                  </font>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" prefHeight="40.0" prefWidth="173.0" text="scanner.hasNext()" textFill="#56423c" toggleGroup="$answers" wrapText="true">
+                              <RadioButton fx:id="answer3" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="400.0" textFill="#56423c" toggleGroup="$answers" wrapText="true">
                                  <font>
                                     <Font name="Garamond Bold" size="18.0" />
                                  </font>
@@ -186,14 +182,26 @@
                               <Insets />
                            </VBox.margin>
                         </VBox>
-                        <Button mnemonicParsing="false" onAction="#submitAnswer" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="SUBMIT" textAlignment="CENTER" textFill="#fff7f3">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <font>
-                              <Font name="Garamond Bold" size="22.0" />
-                           </font>
-                        </Button>
+                        <HBox>
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#submitAnswer" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="SUBMIT" textAlignment="CENTER" textFill="#fff7f3">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Garamond Bold" size="22.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="feedbackAnswerLabel" opacity="0.0" text="INCORRECT ANSWER! TRY AGAIN" textAlignment="CENTER" textFill="#900e00" textOverrun="WORD_ELLIPSIS">
+                                 <font>
+                                    <Font name="Garamond Bold" size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                </children>
@@ -211,7 +219,7 @@
                         <Insets left="35.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#loadNextChapter" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="NEXT CHAPTER" textAlignment="CENTER" textFill="#fff7f3">
+                  <Button fx:id="nextChapterButton" mnemonicParsing="false" onAction="#loadNextChapter" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="NEXT CHAPTER" textAlignment="CENTER" textFill="#fff7f3">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

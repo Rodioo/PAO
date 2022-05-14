@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -114,7 +115,7 @@ public class QuestionDao implements Countable, Dao<Question> {
     }
 
     @Override
-    public long update(Question question, String[] params) {
+    public long update(Question question, HashMap<String, String> params) {
         return 0;
     }
 

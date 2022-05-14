@@ -11,7 +11,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CourseInformationDao implements Countable, Dao<CourseInformation> {
 
@@ -110,12 +112,40 @@ public class CourseInformationDao implements Countable, Dao<CourseInformation> {
     }
 
     @Override
-    public long update(CourseInformation courseInformation, String[] params) {
-        return 0;
+    public long update(CourseInformation courseInformation, HashMap<String, String> params) {
+        if(courseInformation == null || getById(courseInformation.getId()) == null)
+            return -1;
+        try{
+            String query = "UPDATE proiectpao.courses_informations " +
+                    "SET";
+            for(Map.Entry<String, String> entry : params.entrySet()) {
+                String column = entry.getKey();
+                String value = entry.getValue();
+                query += " " + column + "=" + value + ",";
+            }
+            query = query.substring(0, query.length() - 1);
+            query += " WHERE id=" + courseInformation.getId() + ";";
+            PreparedStatement preparedStatement = Dao.connection.prepareStatement(query);
+            preparedStatement.executeUpdate();
+        }catch(SQLException e) {
+            System.out.println("Error occurred when updating the course information in the database.");
+            System.out.println(e.getMessage());
+        }
+        return courseInformation.getId();
     }
 
     @Override
     public void delete(CourseInformation courseInformation) {
-
+        if(courseInformation == null)
+            return;
+        try {
+            String query = "DELETE FROM proiectpao.courses_informations WHERE id = ?;";
+            PreparedStatement preparedStatement = Dao.connection.prepareStatement(query);
+            preparedStatement.setLong(1, courseInformation.getId());
+            preparedStatement.executeUpdate();
+        }catch(SQLException e) {
+            System.out.println("Error occurred when deleting the course information from the database.");
+            System.out.println(e.getMessage());
+        }
     }
 }

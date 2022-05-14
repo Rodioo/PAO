@@ -91,8 +91,26 @@ public class StudentDao implements Dao<Student> {
     }
 
     @Override
-    public long update(Student student, String[] params) {
-        return 0;
+    public long update(Student student, HashMap<String, String> params) {
+        if(student == null || getById(student.getId()) == null)
+            return -1;
+        try{
+            String query = "UPDATE proiectpao.students " +
+                    "SET";
+            for(Map.Entry<String, String> entry : params.entrySet()) {
+                String column = entry.getKey();
+                String value = entry.getValue();
+                query += " " + column + "=" + value + ",";
+            }
+            query = query.substring(0, query.length() - 1);
+            query += " WHERE idUser=" + student.getId() + ";";
+            PreparedStatement preparedStatement = Dao.connection.prepareStatement(query);
+            preparedStatement.executeUpdate();
+        }catch(SQLException e) {
+            System.out.println("Error occurred when updating the student in the database.");
+            System.out.println(e.getMessage());
+        }
+        return student.getId();
     }
 
     @Override

@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -87,7 +88,7 @@ public class AuxQuestionDao implements Dao<AuxQuestion> {
     }
 
     @Override
-    public long update(AuxQuestion auxQuestion, String[] params) {
+    public long update(AuxQuestion auxQuestion, HashMap<String, String> params) {
         return 0;
     }
 
