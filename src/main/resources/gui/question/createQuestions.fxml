@@ -11,36 +11,8 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.question.CreateQuestionsController">
    <top>
-      <HBox spacing="30.0" style="-fx-background-color: linear-gradient(to right, #E57787, #FF916C); -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px;" BorderPane.alignment="CENTER">
+      <HBox alignment="TOP_RIGHT" spacing="30.0" style="-fx-background-color: linear-gradient(to right, #E57787, #FF916C); -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px;" BorderPane.alignment="CENTER">
          <children>
-            <Label text="PROFILE" textFill="#fff7f3">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Garamond Bold" size="18.0" />
-               </font>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" top="5.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-            </Label>
-            <Label layoutX="10.0" layoutY="10.0" text="COURSES" textFill="#fff7f3">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Garamond Bold" size="18.0" />
-               </font>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" top="5.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Label>
             <Label fx:id="usernameLabel" alignment="CENTER_RIGHT" layoutX="255.0" layoutY="10.0" prefHeight="32.0" prefWidth="250.0" textFill="#fff7f3">
                <font>
                   <Font name="Garamond Bold" size="21.0" />
@@ -49,21 +21,7 @@
                   <Insets bottom="2.5" top="2.5" />
                </padding>
                <HBox.margin>
-                  <Insets left="150.0" right="-5.0" />
-               </HBox.margin>
-            </Label>
-            <Label style="-fx-border-color: #fff7f3; -fx-border-width: 0px 0px 0px 2px;" text="LOGOUT" textFill="#fff7f3">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Garamond Bold" size="18.0" />
-               </font>
-               <padding>
-                  <Insets left="25.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets bottom="5.0" right="10.0" top="5.0" />
+                  <Insets right="10.0" />
                </HBox.margin>
             </Label>
          </children>

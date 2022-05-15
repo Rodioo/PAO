@@ -38,5 +38,15 @@ public class TeacherHomeController {
         controller.initData(teacher);
     }
 
+    public void loadTeacherProfileScene() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(TeacherHomeController.class.getResource("teacherHome.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        window.setScene(scene);
+        TeacherHomeController controller = fxmlLoader.getController();
+        controller.initData(teacher);
+    }
 
+    public void loadAllCoursesScene() {
+
+    }
 }

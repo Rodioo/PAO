@@ -13,7 +13,7 @@
    <top>
       <HBox spacing="30.0" style="-fx-background-color: linear-gradient(to right, #E57787, #FF916C); -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px;" BorderPane.alignment="CENTER">
          <children>
-            <Label text="PROFILE" textFill="#fff7f3">
+            <Label onMouseClicked="#loadStudentProfileScene" text="PROFILE" textFill="#fff7f3">
                <font>
                   <Font name="Garamond Bold" size="18.0" />
                </font>
@@ -27,7 +27,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label layoutX="10.0" layoutY="10.0" text="COURSES" textFill="#fff7f3">
+            <Label layoutX="10.0" layoutY="10.0" onMouseClicked="#loadAllCoursesScene" text="COURSES" textFill="#fff7f3">
                <font>
                   <Font name="Garamond Bold" size="18.0" />
                </font>
@@ -41,7 +41,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label layoutX="136.0" layoutY="10.0" text="SHOP" textFill="#fff7f3">
+            <Label layoutX="136.0" layoutY="10.0" onMouseClicked="#loadShopScene" text="SHOP" textFill="#fff7f3">
                <font>
                   <Font name="Garamond Bold" size="18.0" />
                </font>
