@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -7,7 +8,6 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.student.StudentShopController">
    <top>
@@ -83,4 +83,68 @@
          </children>
       </HBox>
    </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="40.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="34.0" prefWidth="800.0" text="WELCOME TO THE SHOP" textFill="#ff916c">
+               <font>
+                  <Font name="Garamond Bold" size="32.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="34.0" prefWidth="750.0" text="YOUR ACCOUNT STATUS IS PREMIUM." textFill="#ff916c">
+               <font>
+                  <Font name="Garamond Bold" size="28.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="50.0" top="40.0" />
+               </VBox.margin>
+            </Label>
+            <HBox prefHeight="45.0" prefWidth="750.0">
+               <children>
+                  <Label prefHeight="34.0" prefWidth="385.0" text="YOU CURRENTLY HAVE: 20 " textFill="#ff916c">
+                     <font>
+                        <Font name="Garamond Bold" size="28.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="50.0" />
+                     </VBox.margin>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(https://i.imgur.com/SdpbbG2.png);" />
+               </children>
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="248.0" prefWidth="750.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#buyPremium" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="BUY PREMIUM" textAlignment="CENTER" textFill="#fff7f3">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Garamond Bold" size="28.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+                  <ImageView fitHeight="253.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(https://i.imgur.com/srSOrpa.png);">
+                     <HBox.margin>
+                        <Insets left="200.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
 </BorderPane>
