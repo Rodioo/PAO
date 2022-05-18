@@ -48,4 +48,17 @@ public class StudentService {
         updateMap.put("points", String.valueOf(student.getPoints()));
         StudentDao.getInstance().update(student, updateMap);
     }
+
+    public Student becomePremium() {
+        final int PREMIUM_PRICE = 200;
+        if(student.getPoints() < PREMIUM_PRICE) {
+            return student;
+        }
+        student.decreasePoints(PREMIUM_PRICE);
+        var updateMap = new HashMap<String, String>();
+        updateMap.put("points", String.valueOf(student.getPoints()));
+        updateMap.put("isPremium", String.valueOf(1));
+        StudentDao.getInstance().update(student, updateMap);
+        return new PremiumStudent(student);
+    }
 }

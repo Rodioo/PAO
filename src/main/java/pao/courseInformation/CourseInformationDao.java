@@ -5,6 +5,7 @@ import pao.course.Course;
 import pao.course.CourseDao;
 import pao.student.Student;
 import pao.student.StudentDao;
+import utils.classes.UpdateManipulation;
 import utils.interfaces.Countable;
 
 import java.sql.PreparedStatement;
@@ -32,7 +33,8 @@ public class CourseInformationDao implements Countable, Dao<CourseInformation> {
 
     @Override
     public long getNextId() {
-        return (coursesInformations == null) ? 1 : coursesInformations.size() + 1;
+        return (coursesInformations == null || coursesInformations.isEmpty()) ? 1
+                : coursesInformations.get(coursesInformations.size() - 1).getId() + 1;
     }
 
     @Override
@@ -113,18 +115,12 @@ public class CourseInformationDao implements Countable, Dao<CourseInformation> {
 
     @Override
     public long update(CourseInformation courseInformation, HashMap<String, String> params) {
-        if(courseInformation == null || getById(courseInformation.getId()) == null)
+        if(courseInformation == null || getById(courseInformation.getId()) == null || params == null || params.isEmpty())
             return -1;
         try{
             String query = "UPDATE proiectpao.courses_informations " +
-                    "SET";
-            for(Map.Entry<String, String> entry : params.entrySet()) {
-                String column = entry.getKey();
-                String value = entry.getValue();
-                query += " " + column + "=" + value + ",";
-            }
-            query = query.substring(0, query.length() - 1);
-            query += " WHERE id=" + courseInformation.getId() + ";";
+                    "SET" + UpdateManipulation.getUpdateQuery(params) +
+                    " WHERE id=" + courseInformation.getId() + ";";
             PreparedStatement preparedStatement = Dao.connection.prepareStatement(query);
             preparedStatement.executeUpdate();
         }catch(SQLException e) {

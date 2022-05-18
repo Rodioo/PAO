@@ -32,7 +32,7 @@ public class CourseDao implements Countable, Dao<Course> {
 
     @Override
     public long getNextId() {
-        return (courses == null) ? 1 : courses.size() + 1;
+        return (courses == null || courses.isEmpty()) ? 1 : courses.get(courses.size() - 1).getId() + 1;
     }
 
     @Override

@@ -29,7 +29,7 @@ public class UserDao implements Countable, Dao<User> {
 
     @Override
     public long getNextId() {
-        return (users == null) ? 1 : users.size() + 1;
+        return (users == null || users.isEmpty()) ? 1 : users.get(users.size() - 1).getId() + 1;
     }
 
     @Override

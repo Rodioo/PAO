@@ -5,6 +5,7 @@ import pao.courseInformation.CourseInformation;
 import pao.courseInformation.CourseInformationDao;
 import pao.user.User;
 import pao.user.UserDao;
+import utils.classes.UpdateManipulation;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -92,18 +93,12 @@ public class StudentDao implements Dao<Student> {
 
     @Override
     public long update(Student student, HashMap<String, String> params) {
-        if(student == null || getById(student.getId()) == null)
+        if(student == null || getById(student.getId()) == null || params == null || params.isEmpty())
             return -1;
         try{
             String query = "UPDATE proiectpao.students " +
-                    "SET";
-            for(Map.Entry<String, String> entry : params.entrySet()) {
-                String column = entry.getKey();
-                String value = entry.getValue();
-                query += " " + column + "=" + value + ",";
-            }
-            query = query.substring(0, query.length() - 1);
-            query += " WHERE idUser=" + student.getId() + ";";
+                    "SET" + UpdateManipulation.getUpdateQuery(params) +
+                    " WHERE idUser=" + student.getId() + ";";
             PreparedStatement preparedStatement = Dao.connection.prepareStatement(query);
             preparedStatement.executeUpdate();
         }catch(SQLException e) {

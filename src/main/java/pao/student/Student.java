@@ -21,6 +21,12 @@ public sealed class Student extends User permits PremiumStudent {
         this.courseInformation = courseInformation;
     }
 
+    public Student(long id, String username, String email, String password, int points, CourseInformation courseInformation) {
+        super(id, username, email, password);
+        this.points = points;
+        this.courseInformation = courseInformation;
+    }
+
     public int getPoints() {
         return points;
     }
@@ -31,6 +37,12 @@ public sealed class Student extends User permits PremiumStudent {
 
     public void setCourseInformation(CourseInformation courseInformation) {
         this.courseInformation = courseInformation;
+    }
+
+    public void decreasePoints(int points) {
+        if(this.points >= points) {
+            this.points -= points;
+        }
     }
 
     public void increasePoints(int points) {

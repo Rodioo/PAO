@@ -33,7 +33,7 @@ public class ChapterDao implements Countable, Dao<Chapter> {
 
     @Override
     public long getNextId() {
-        return (chapters == null) ? 1 : chapters.size() + 1;
+        return (chapters == null || chapters.isEmpty()) ? 1 : chapters.get(chapters.size() - 1).getId() + 1;
     }
 
     @Override

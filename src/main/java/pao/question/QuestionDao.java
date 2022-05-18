@@ -31,7 +31,7 @@ public class QuestionDao implements Countable, Dao<Question> {
 
     @Override
     public long getNextId() {
-        return (questions == null) ? 1 : questions.size() + 1;
+        return (questions == null || questions.isEmpty()) ? 1 : questions.get(questions.size() - 1).getId() + 1;
     }
 
     @Override

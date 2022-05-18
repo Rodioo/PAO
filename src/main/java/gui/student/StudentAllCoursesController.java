@@ -60,10 +60,10 @@ public class StudentAllCoursesController {
     }
 
     public void loadShopScene() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(StudentAllCoursesController.class.getResource("shop/studentShop.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StudentShopController.class.getResource("shop/studentShop.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         window.setScene(scene);
-        StudentAllCoursesController controller = fxmlLoader.getController();
+        StudentShopController controller = fxmlLoader.getController();
         controller.initData(student);
     }
 }
