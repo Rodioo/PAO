@@ -31,6 +31,7 @@ public class StudentReadCourseController {
     private StudentService studentService;
     private Course course;
     private Chapter chapter;
+    private int currentQuestionNumber;
     private Question question;
 
     private @FXML Label usernameLabel;
@@ -40,30 +41,59 @@ public class StudentReadCourseController {
     private @FXML TextArea chapterText;
     private @FXML Label questionTitle;
     private @FXML Label questionDifficulty;
+    private @FXML ImageView pointsImage;
     private @FXML RadioButton answer1;
     private @FXML RadioButton answer2;
     private @FXML RadioButton answer3;
     private @FXML ToggleGroup answers;
+    private @FXML Button submitAnswerButton;
     private @FXML Button nextChapterButton;
     private @FXML Label feedbackAnswerLabel;
 
     private @FXML Stage window;
 
-    private Question pickRandomQuestion() {
-        if(chapter == null || chapter.getQuestions() == null || chapter.getQuestions().size() == 0)
+    private Question pickQuestionAndIncrement() {
+        if(chapter == null || chapter.getQuestions() == null
+                || chapter.getQuestions().size() == 0 || currentQuestionNumber >= chapter.getQuestions().size())
             return null;
-        return chapter.getQuestions().get(new Random().nextInt(chapter.getQuestions().size()));
+        return chapter.getQuestions().get(currentQuestionNumber++);
     }
 
-    private void loadQuestion() {
-        question = pickRandomQuestion();
-        if(question == null)
-            return;
-        questionTitle.setText(question.getText());
+    private void hideQuestion() {
+        questionTitle.setText("FINISHED ALL QUESTIONS FOR THIS CHAPTER.\n\n\tYOU CAN PROCEED FURTHER.");
+        questionDifficulty.setVisible(false);
+        pointsImage.setVisible(false);
+        answer1.setVisible(false);
+        answer2.setVisible(false);
+        answer3.setVisible(false);
+        submitAnswerButton.setVisible(false);
+        Transition.hideErrorLabel(feedbackAnswerLabel);
+        nextChapterButton.setDisable(false);
+    }
+
+    private void showQuestion() {
+        questionDifficulty.setVisible(true);
+        pointsImage.setVisible(true);
+        answer1.setVisible(true);
+        answer2.setVisible(true);
+        answer3.setVisible(true);
+        submitAnswerButton.setVisible(true);
+        nextChapterButton.setDisable(true);
+        questionTitle.setText(question.getText() + "\t" + currentQuestionNumber + "/" + chapter.getQuestions().size());
         questionDifficulty.setText(question.getDifficulty() + ": " + question.getRewardPoints());
         answer1.setText(question.getOptions().get(0));
         answer2.setText(question.getOptions().get(1));
         answer3.setText(question.getOptions().get(2));
+    }
+
+    private void loadQuestion() {
+        question = pickQuestionAndIncrement();
+        if(question == null) {
+            hideQuestion();
+        }
+        else {
+            showQuestion();
+        }
     }
 
     private void loadCurrentChapter() {
@@ -131,6 +161,7 @@ public class StudentReadCourseController {
         }
         courseInformationService.incrementStudentProgress(1);
         this.chapter = course.getChapters().get(courseInformation.getNumberChapter());
+        this.currentQuestionNumber = 0;
         loadCurrentChapter();
     }
 
@@ -146,14 +177,6 @@ public class StudentReadCourseController {
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         window.setScene(scene);
         StudentHomeController controller = fxmlLoader.getController();
-        controller.initData(student);
-    }
-
-    public void loadAllCoursesScene() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(StudentAllCoursesController.class.getResource("allCourses/studentAllCourses.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        window.setScene(scene);
-        StudentAllCoursesController controller = fxmlLoader.getController();
         controller.initData(student);
     }
 

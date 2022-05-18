@@ -27,20 +27,6 @@
                   <Insets left="10.0" />
                </HBox.margin>
             </Label>
-            <Label layoutX="10.0" layoutY="10.0" onMouseClicked="#loadAllCoursesScene" text="COURSES" textFill="#fff7f3">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Garamond Bold" size="18.0" />
-               </font>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" top="5.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Label>
             <Label layoutX="136.0" layoutY="10.0" onMouseClicked="#loadShopScene" text="SHOP" textFill="#fff7f3">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -63,7 +49,7 @@
                   <Insets bottom="2.5" top="2.5" />
                </padding>
                <HBox.margin>
-                  <Insets left="70.0" right="-5.0" />
+                  <Insets left="190.0" />
                </HBox.margin>
             </Label>
             <Label onMouseClicked="#logout" style="-fx-border-color: #fff7f3; -fx-border-width: 0px 0px 0px 2px;" text="LOGOUT" textFill="#fff7f3">
@@ -129,7 +115,7 @@
                   </TextArea>
                   <VBox prefHeight="252.0" prefWidth="398.0" spacing="10.0">
                      <children>
-                        <Label fx:id="questionTitle" prefHeight="100.0" prefWidth="398.0" textFill="#ff916c" wrapText="true">
+                        <Label fx:id="questionTitle" prefHeight="180.0" prefWidth="398.0" textFill="#ff916c" wrapText="true">
                            <font>
                               <Font name="Garamond Bold" size="18.0" />
                            </font>
@@ -147,7 +133,7 @@
                                     <Insets top="7.5" />
                                  </HBox.margin>
                               </Label>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(https://i.imgur.com/SdpbbG2.png);">
+                              <ImageView fx:id="pointsImage" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(https://i.imgur.com/SdpbbG2.png);">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
@@ -184,7 +170,7 @@
                         </VBox>
                         <HBox>
                            <children>
-                              <Button mnemonicParsing="false" onAction="#submitAnswer" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="SUBMIT" textAlignment="CENTER" textFill="#fff7f3">
+                              <Button fx:id="submitAnswerButton" mnemonicParsing="false" onAction="#submitAnswer" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="SUBMIT" textAlignment="CENTER" textFill="#fff7f3">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -219,7 +205,7 @@
                         <Insets left="35.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="nextChapterButton" mnemonicParsing="false" onAction="#loadNextChapter" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="NEXT CHAPTER" textAlignment="CENTER" textFill="#fff7f3">
+                  <Button fx:id="nextChapterButton" disable="true" mnemonicParsing="false" onAction="#loadNextChapter" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="NEXT CHAPTER" textAlignment="CENTER" textFill="#fff7f3">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

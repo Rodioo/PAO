@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #FFF7F3;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.student.StudentHomeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #FFF7F3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.student.StudentHomeController">
    <top>
       <HBox spacing="30.0" style="-fx-background-color: linear-gradient(to right, #E57787, #FF916C); -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px;" BorderPane.alignment="CENTER">
          <children>
@@ -22,20 +21,6 @@
                </padding>
                <HBox.margin>
                   <Insets left="10.0" />
-               </HBox.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Label>
-            <Label layoutX="10.0" layoutY="10.0" onMouseClicked="#loadAllCoursesScene" text="COURSES" textFill="#fff7f3">
-               <font>
-                  <Font name="Garamond Bold" size="18.0" />
-               </font>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" top="5.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets />
                </HBox.margin>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -63,7 +48,7 @@
                   <Insets bottom="2.5" top="2.5" />
                </padding>
                <HBox.margin>
-                  <Insets left="70.0" right="-5.0" />
+                  <Insets left="190.0" />
                </HBox.margin>
             </Label>
             <Label onMouseClicked="#logout" style="-fx-border-color: #fff7f3; -fx-border-width: 0px 0px 0px 2px;" text="LOGOUT" textFill="#fff7f3">
@@ -84,7 +69,7 @@
       </HBox>
    </top>
    <right>
-      <StackPane fx:id="selectCoursePane" minWidth="-Infinity" prefHeight="566.0" prefWidth="800.0" visible="false" BorderPane.alignment="CENTER">
+      <StackPane fx:id="selectCoursePane" minWidth="-Infinity" prefHeight="566.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0">
                <children>
@@ -315,17 +300,6 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <Label text="Or click here to see all of the available courses" textFill="#56423c">
-                     <font>
-                        <Font name="Garamond Bold" size="32.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <VBox.margin>
-                        <Insets left="60.0" />
-                     </VBox.margin>
-                  </Label>
                </children>
                <StackPane.margin>
                   <Insets left="30.0" top="50.0" />
@@ -335,7 +309,7 @@
       </StackPane>
    </right>
    <left>
-      <StackPane fx:id="continueCoursePane" minWidth="-Infinity" prefWidth="800.0">
+      <StackPane fx:id="continueCoursePane" minWidth="-Infinity" prefWidth="800.0" visible="false">
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
                <StackPane.margin>

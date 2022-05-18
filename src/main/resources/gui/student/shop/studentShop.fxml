@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.student.StudentShopController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.student.StudentShopController">
    <top>
       <HBox spacing="30.0" style="-fx-background-color: linear-gradient(to right, #E57787, #FF916C); -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px;" BorderPane.alignment="CENTER">
          <children>
@@ -22,17 +20,6 @@
                </font>
                <HBox.margin>
                   <Insets bottom="5.0" left="10.0" top="5.0" />
-               </HBox.margin>
-            </Label>
-            <Label layoutX="10.0" layoutY="10.0" onMouseClicked="#loadAllCoursesScene" text="COURSES" textFill="#fff7f3">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Garamond Bold" size="18.0" />
-               </font>
-               <HBox.margin>
-                  <Insets top="5.0" />
                </HBox.margin>
             </Label>
             <Label layoutX="136.0" layoutY="10.0" onMouseClicked="#loadShopScene" text="SHOP" textFill="#fff7f3">
@@ -54,7 +41,7 @@
                   <Insets bottom="2.5" top="2.5" />
                </padding>
                <HBox.margin>
-                  <Insets left="70.0" right="-5.0" />
+                  <Insets left="190.0" />
                </HBox.margin>
             </Label>
             <Label onMouseClicked="#logout" style="-fx-border-color: #fff7f3; -fx-border-width: 0px 0px 0px 2px;" text="LOGOUT" textFill="#fff7f3">
@@ -75,7 +62,7 @@
       </HBox>
    </top>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="CENTER" prefHeight="34.0" prefWidth="800.0" text="WELCOME TO THE SHOP" textFill="#ff916c">
                <font>
@@ -103,13 +90,13 @@
                         <Insets left="50.0" />
                      </VBox.margin>
                      <HBox.margin>
-                        <Insets top="5.0" />
+                        <Insets />
                      </HBox.margin>
                   </Label>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(https://i.imgur.com/SdpbbG2.png);" />
                </children>
                <VBox.margin>
-                  <Insets left="50.0" />
+                  <Insets left="50.0" top="20.0" />
                </VBox.margin>
             </HBox>
             <HBox prefHeight="248.0" prefWidth="750.0">
@@ -132,7 +119,7 @@
                   </Label>
                </children>
                <VBox.margin>
-                  <Insets left="50.0" />
+                  <Insets left="50.0" top="20.0" />
                </VBox.margin>
             </HBox>
             <ImageView fitHeight="253.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(https://i.imgur.com/srSOrpa.png);">
@@ -141,6 +128,9 @@
                </VBox.margin>
             </ImageView>
          </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
       </VBox>
    </center>
 </BorderPane>
