@@ -17,7 +17,7 @@
 - A student can become a premium student with points from the courses questions, therefore unlocking premium courses.
 
 
-### Examples of the application:
+### Examples of the application UI:
 
 - ## Login window
 
