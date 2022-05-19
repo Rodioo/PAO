@@ -1,5 +1,6 @@
 package pao.student;
 
+import db.AuditService;
 import org.jetbrains.annotations.NotNull;
 import pao.course.Course;
 import pao.courseInformation.CourseInformation;
@@ -13,9 +14,11 @@ import java.util.List;
 public class StudentService {
 
     private final Student student;
+    private final AuditService auditService;
 
     public StudentService(Student student) {
         this.student = student;
+        this.auditService = new AuditService();
     }
 
     public List<Course> filterCourses(@NotNull List<Course> courses) {
@@ -26,6 +29,7 @@ public class StudentService {
                 filteredCourses.add(course);
             }
         }
+        auditService.logAction("Filter courses");
         return filteredCourses;
     }
 
@@ -39,6 +43,7 @@ public class StudentService {
         CourseInformation courseInformation = new CourseInformation(student.getId(), course.getId());
         CourseInformationDao.getInstance().insert(courseInformation);
         student.setCourseInformation(courseInformation);
+        auditService.logAction("Enroll in course");
         return courseInformation;
     }
 
@@ -47,6 +52,7 @@ public class StudentService {
         var updateMap = new HashMap<String, String>();
         updateMap.put("points", String.valueOf(student.getPoints()));
         StudentDao.getInstance().update(student, updateMap);
+        auditService.logAction("Increase points");
     }
 
     public Student becomePremium() {
@@ -59,6 +65,7 @@ public class StudentService {
         updateMap.put("points", String.valueOf(student.getPoints()));
         updateMap.put("isPremium", String.valueOf(1));
         StudentDao.getInstance().update(student, updateMap);
+        auditService.logAction("Become premium");
         return new PremiumStudent(student);
     }
 }

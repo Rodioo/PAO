@@ -1,5 +1,6 @@
 package pao.course;
 
+import db.AuditService;
 import pao.auxChapter.AuxChapter;
 import pao.auxChapter.AuxChapterDao;
 import pao.auxCourse.AuxCourseDao;
@@ -12,9 +13,11 @@ import utils.exceptions.TeacherNotFoundException;
 public class CourseService {
 
     private final Course course;
+    private final AuditService auditService;
 
     public CourseService(Course course) {
         this.course = course;
+        this.auditService = new AuditService();
     }
 
     public Chapter createChapter(String title, String text) {
@@ -22,6 +25,7 @@ public class CourseService {
         course.getChapters().add(chapter);
         ChapterDao.getInstance().insert(chapter);
         AuxChapterDao.getInstance().insert(new AuxChapter(course.getId(), chapter.getId()));
+        auditService.logAction("Create chapter");
         return chapter;
     }
 
@@ -30,10 +34,12 @@ public class CourseService {
         if(teacherId == -1)
             throw new TeacherNotFoundException("Course with id " + course.getId() + " does not have a teacher.");
         Teacher teacher = TeacherDao.getInstance().getById(teacherId);
+        auditService.logAction("Get course's teacher name");
         return teacher.getUsername();
     }
 
     public int getCourseNumberOfChapters() {
+        auditService.logAction("Get course's number of chapters");
         return course.getChapters().size();
     }
 
@@ -42,6 +48,7 @@ public class CourseService {
         for(Chapter chapter : course.getChapters()) {
             numOfQuestions += chapter.getQuestions().size();
         }
+        auditService.logAction("Get course's number of questions");
         return numOfQuestions;
     }
 }

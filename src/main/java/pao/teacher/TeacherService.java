@@ -1,5 +1,6 @@
 package pao.teacher;
 
+import db.AuditService;
 import pao.auxCourse.AuxCourse;
 import pao.auxCourse.AuxCourseDao;
 import pao.course.Course;
@@ -9,9 +10,11 @@ import utils.enums.AccessType;
 public class TeacherService {
 
     private final Teacher teacher;
+    private final AuditService auditService;
 
     public TeacherService(Teacher teacher) {
         this.teacher = teacher;
+        this.auditService = new AuditService();
     }
 
     public Course createCourse(String name, String description, String imageURL, AccessType accessType) {
@@ -19,6 +22,7 @@ public class TeacherService {
         teacher.getCourses().add(course);
         CourseDao.getInstance().insert(course);
         AuxCourseDao.getInstance().insert(new AuxCourse(teacher.getId(), course.getId()));
+        auditService.logAction("Create course");
         return course;
     }
 
