@@ -5,7 +5,6 @@ import gui.forgotPassword.ForgotPasswordController;
 import gui.register.RegisterController;
 import gui.student.StudentHomeController;
 import gui.teacher.TeacherHomeController;
-import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -13,13 +12,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import pao.student.Student;
 import pao.student.StudentDao;
 import pao.teacher.Teacher;
 import pao.teacher.TeacherDao;
 import pao.user.User;
 import pao.user.UserDao;
+import utils.classes.Transition;
 
 import java.io.IOException;
 
@@ -31,18 +30,10 @@ public class LoginController {
     private @FXML Button registerButton;
     private @FXML Stage window;
 
-
-    private void displayErrorLabel(Label errorLabel) {
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), errorLabel);
-        fadeIn.setFromValue(0.0);
-        fadeIn.setToValue(1.0);
-        fadeIn.play();
-    }
-
     public void loginUser() throws IOException {
         User user = UserDao.getInstance().getByUsernameAndPassword(usernameField.getText(), passwordField.getText());
         if(user == null) {
-            displayErrorLabel(loginIncorrectLabel);
+            Transition.displayErrorLabel(loginIncorrectLabel);
         }
         else {
             window = (Stage) usernameField.getScene().getWindow();
@@ -50,7 +41,7 @@ public class LoginController {
             if(student == null) {
                 Teacher teacher = TeacherDao.getInstance().getById(user.getId());
                 if(teacher == null) {
-                    displayErrorLabel(loginIncorrectLabel);
+                    Transition.displayErrorLabel(loginIncorrectLabel);
                 }
                 else {
                     FXMLLoader fxmlLoader = new FXMLLoader(TeacherHomeController.class.getResource("teacherHome.fxml"));
