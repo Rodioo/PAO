@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #FFF7F3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.student.StudentHomeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #FFF7F3;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.student.StudentHomeController">
    <top>
       <HBox spacing="30.0" style="-fx-background-color: linear-gradient(to right, #E57787, #FF916C); -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px;" BorderPane.alignment="CENTER">
          <children>
@@ -69,7 +70,7 @@
       </HBox>
    </top>
    <right>
-      <StackPane fx:id="selectCoursePane" minWidth="-Infinity" prefHeight="566.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+      <StackPane fx:id="selectCoursePane" minWidth="-Infinity" prefHeight="566.0" prefWidth="800.0" visible="false" BorderPane.alignment="CENTER">
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0">
                <children>
@@ -85,7 +86,7 @@
                   </Label>
                   <HBox prefHeight="300.0" prefWidth="200.0">
                      <children>
-                        <VBox prefWidth="370.0">
+                        <VBox fx:id="course1Box" prefWidth="370.0">
                            <children>
                               <HBox spacing="10.0">
                                  <children>
@@ -153,10 +154,7 @@
                                  <children>
                                     <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
                                        <children>
-                                          <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@images/access.png" />
-                                             </image>
+                                          <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(https://i.imgur.com/pGMq9kS.png);">
                                              <VBox.margin>
                                                 <Insets left="25.0" />
                                              </VBox.margin>
@@ -189,12 +187,12 @@
                               <Insets />
                            </HBox.margin>
                         </VBox>
-                        <Line endX="100.0" rotate="90.0" startX="-100.0" stroke="#56423c" strokeWidth="2.0">
+                        <Line fx:id="separatorLine" endX="100.0" rotate="90.0" startX="-100.0" stroke="#56423c" strokeWidth="2.0">
                            <HBox.margin>
                               <Insets left="-80.0" top="150.0" />
                            </HBox.margin>
                         </Line>
-                        <VBox layoutX="10.0" layoutY="10.0" prefWidth="370.0">
+                        <VBox fx:id="course2Box" layoutX="10.0" layoutY="10.0" prefWidth="370.0">
                            <children>
                               <HBox spacing="10.0">
                                  <children>
@@ -262,10 +260,7 @@
                                  <children>
                                     <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
                                        <children>
-                                          <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@images/access.png" />
-                                             </image>
+                                          <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(https://i.imgur.com/pGMq9kS.png);">
                                              <VBox.margin>
                                                 <Insets left="25.0" />
                                              </VBox.margin>
@@ -309,7 +304,7 @@
       </StackPane>
    </right>
    <left>
-      <StackPane fx:id="continueCoursePane" minWidth="-Infinity" prefWidth="800.0" visible="false">
+      <StackPane fx:id="continueCoursePane" minWidth="-Infinity" prefWidth="800.0">
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
                <StackPane.margin>
@@ -463,10 +458,7 @@
                                  <children>
                                     <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
                                        <children>
-                                          <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@images/access.png" />
-                                             </image>
+                                          <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(https://i.imgur.com/pGMq9kS.png);">
                                              <VBox.margin>
                                                 <Insets left="25.0" />
                                              </VBox.margin>

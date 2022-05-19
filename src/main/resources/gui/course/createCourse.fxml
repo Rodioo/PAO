@@ -114,7 +114,7 @@
                         <Font name="Garamond Bold" size="14.0" />
                      </font>
                      <HBox.margin>
-                        <Insets top="50.0" />
+                        <Insets top="55.0" />
                      </HBox.margin>
                   </Label>
                </children>

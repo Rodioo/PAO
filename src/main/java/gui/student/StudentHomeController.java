@@ -11,6 +11,8 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
 import pao.chapter.Chapter;
@@ -23,6 +25,7 @@ import pao.student.Student;
 import pao.student.StudentService;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -30,12 +33,13 @@ public class StudentHomeController{
 
     private Student student;
     private StudentService studentService;
-    private List<Course> courses;
     private List<Course> filteredCourses;
     private CourseInformation pickedCourseInformation;
     private @FXML Label usernameLabel;
     private @FXML StackPane selectCoursePane;
     private @FXML StackPane continueCoursePane;
+
+    private @FXML VBox course1Box;
     private @FXML ImageView courseImage1;
     private @FXML Label courseTitle1;
     private @FXML Label courseTeacher1;
@@ -44,6 +48,10 @@ public class StudentHomeController{
     private @FXML Label courseDescription1;
     private @FXML Label courseAccess1;
     private @FXML Button button1;
+
+    private @FXML Line separatorLine;
+
+    private @FXML VBox course2Box;
     private @FXML ImageView courseImage2;
     private @FXML Label courseTitle2;
     private @FXML Label courseTeacher2;
@@ -70,7 +78,7 @@ public class StudentHomeController{
         studentService = new StudentService(student);
         window = (Stage) usernameLabel.getScene().getWindow();
         usernameLabel.setText(student.getUsername());
-        courses = CourseDao.getInstance().getAll();
+        List<Course> courses = CourseDao.getInstance().getAll();
         filteredCourses = studentService.filterCourses(courses);
         displayCorrectScene();
     }
@@ -82,10 +90,22 @@ public class StudentHomeController{
         window.setScene(scene);
     }
 
-    private Course pickRandomCourse() {
+    private List<Course> pick2RandomCourses() {
         if(filteredCourses == null || filteredCourses.size() == 0)
             return null;
-        return filteredCourses.get(new Random().nextInt(filteredCourses.size()));
+        if(filteredCourses.size() <= 2)
+            return filteredCourses;
+        List<Course> courses = new ArrayList<>();
+        Course course1 = filteredCourses.get(new Random().nextInt(filteredCourses.size()));
+        while(true) {
+            Course course2 = filteredCourses.get(new Random().nextInt(filteredCourses.size()));
+            if(!course2.equals(course1)) {
+                courses.add(course1);
+                courses.add(course2);
+                break;
+            }
+        }
+        return courses;
     }
 
     private void loadCourseData(Course course, ImageView courseImage, Label courseTitle, Label courseTeacher,
@@ -108,10 +128,27 @@ public class StudentHomeController{
     }
 
     private void pickCourseAndLoadData() {
-        loadCourseData(pickRandomCourse(), courseImage1, courseTitle1, courseTeacher1,
-                numberOfChapters1, numberOfQuestions1, courseDescription1, courseAccess1);
-        loadCourseData(pickRandomCourse(), courseImage2, courseTitle2, courseTeacher2,
-                numberOfChapters2, numberOfQuestions2, courseDescription2, courseAccess2);
+        List<Course> pickedCourses = pick2RandomCourses();
+        if(pickedCourses == null) {
+            course1Box.setVisible(false);
+            separatorLine.setVisible(false);
+            course2Box.setVisible(false);
+            return;
+        }
+        if(pickedCourses.size() >= 1) {
+            course1Box.setVisible(true);
+            separatorLine.setVisible(false);
+            course2Box.setVisible(false);
+            loadCourseData(pickedCourses.get(0), courseImage1, courseTitle1, courseTeacher1,
+                    numberOfChapters1, numberOfQuestions1, courseDescription1, courseAccess1);
+        }
+        if(pickedCourses.size() >= 2) {
+            course1Box.setVisible(true);
+            separatorLine.setVisible(true);
+            course2Box.setVisible(true);
+            loadCourseData(pickedCourses.get(1), courseImage2, courseTitle2, courseTeacher2,
+                    numberOfChapters2, numberOfQuestions2, courseDescription2, courseAccess2);
+        }
     }
 
     private void loadCourseInformationData() {

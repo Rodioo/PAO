@@ -53,6 +53,12 @@ public class UserDao implements Countable, Dao<User> {
                 .findAny().orElse(null);
     }
 
+    public User getByEmail(String email) {
+        return users.stream()
+                .filter(user -> user.getEmail().equals(email))
+                .findAny().orElse(null);
+    }
+
     public boolean isUsernameTaken(String username) {
         return users.stream().
                 filter(user -> user.getUsername().equals(username)).

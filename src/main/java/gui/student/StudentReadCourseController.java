@@ -21,7 +21,6 @@ import pao.student.StudentService;
 import utils.classes.Transition;
 
 import java.io.IOException;
-import java.util.Random;
 
 public class StudentReadCourseController {
 

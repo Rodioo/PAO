@@ -12,34 +12,6 @@
    <top>
       <HBox spacing="30.0" style="-fx-background-color: linear-gradient(to right, #E57787, #FF916C); -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px;" BorderPane.alignment="CENTER">
          <children>
-            <Label onMouseClicked="#loadTeacherProfileScene" text="PROFILE" textFill="#fff7f3">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Garamond Bold" size="18.0" />
-               </font>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" top="5.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-            </Label>
-            <Label layoutX="10.0" layoutY="10.0" onMouseClicked="#loadAllCoursesScene" text="COURSES" textFill="#fff7f3">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Garamond Bold" size="18.0" />
-               </font>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" top="5.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Label>
             <Label fx:id="usernameLabel" alignment="CENTER_RIGHT" layoutX="255.0" layoutY="10.0" prefHeight="32.0" prefWidth="250.0" textFill="#fff7f3">
                <font>
                   <Font name="Garamond Bold" size="21.0" />
@@ -48,7 +20,7 @@
                   <Insets bottom="2.5" top="2.5" />
                </padding>
                <HBox.margin>
-                  <Insets left="150.0" right="-5.0" />
+                  <Insets left="400.0" />
                </HBox.margin>
             </Label>
             <Label onMouseClicked="#logout" style="-fx-border-color: #fff7f3; -fx-border-width: 0px 0px 0px 2px;" text="LOGOUT" textFill="#fff7f3">
@@ -81,7 +53,7 @@
                         <Font name="Garamond Bold" size="42.0" />
                      </font>
                      <VBox.margin>
-                        <Insets top="100.0" />
+                        <Insets />
                      </VBox.margin>
                   </Label>
                   <Label text="Help the community by adding a new course" textFill="#56423c" wrapText="true">
@@ -103,35 +75,13 @@
                         <Insets left="215.0" />
                      </VBox.margin>
                   </Button>
-                  <Label layoutX="10.0" layoutY="89.0" text="Or modify one of your current courses " textFill="#56423c" wrapText="true">
-                     <font>
-                        <Font name="Garamond Bold" size="36.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="20.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Button alignment="TOP_CENTER" layoutX="225.0" layoutY="162.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 15px;" text="MODIFY A COURSE" textFill="#fff7f3">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <font>
-                        <Font name="Garamond Bold" size="32.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="185.0" />
-                     </VBox.margin>
-                  </Button>
                </children>
             </VBox>
          </children>
       </StackPane>
    </center>
    <bottom>
-      <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER_RIGHT">
-         <image>
-            <Image url="@images/teacher.png" />
-         </image>
+      <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(https://i.imgur.com/gaS7I1Y.png);" BorderPane.alignment="CENTER_RIGHT">
          <BorderPane.margin>
             <Insets bottom="10.0" />
          </BorderPane.margin>

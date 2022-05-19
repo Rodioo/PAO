@@ -64,7 +64,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="FORGOT PASSWORD?" textAlignment="CENTER" textFill="#fff7f3">
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadForgetPasswordScene" style="-fx-background-color: linear-gradient(#E57787, #FF916C); -fx-background-radius: 12px;" text="FORGOT PASSWORD?" textAlignment="CENTER" textFill="#fff7f3">
                      <font>
                         <Font name="Garamond Bold" size="19.0" />
                      </font>

@@ -20,4 +20,12 @@ public class UserService {
         }
         return -1;
     }
+
+    public static String receivePassword(String email) {
+        User user = UserDao.getInstance().getByEmail(email);
+        if(user == null) {
+            return null;
+        }
+        return user.getPassword();
+    }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import java.lang.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -33,12 +33,10 @@
       </Button>
    </left>
    <right>
-      <ImageView fitHeight="240.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true"
-                 BorderPane.alignment="BOTTOM_RIGHT">
+      <ImageView fitHeight="240.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(https://i.imgur.com/xAPxrUg.png);" BorderPane.alignment="BOTTOM_RIGHT">
          <BorderPane.margin>
-            <Insets bottom="20.0" right="20.0"/>
+            <Insets bottom="20.0" right="20.0" />
          </BorderPane.margin>
-         <Image url="@images/studying.png"/>
       </ImageView>
    </right>
    <top>

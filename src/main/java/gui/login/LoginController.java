@@ -1,6 +1,7 @@
 package gui.login;
 
 
+import gui.forgotPassword.ForgotPasswordController;
 import gui.register.RegisterController;
 import gui.student.StudentHomeController;
 import gui.teacher.TeacherHomeController;
@@ -72,6 +73,13 @@ public class LoginController {
     //Loads the next scene (Register in this case)
     public void loadRegisterScene() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(RegisterController.class.getResource("register.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        window = (Stage) registerButton.getScene().getWindow();
+        window.setScene(scene);
+    }
+
+    public void loadForgetPasswordScene() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(ForgotPasswordController.class.getResource("forgotPassword.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         window = (Stage) registerButton.getScene().getWindow();
         window.setScene(scene);

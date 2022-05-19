@@ -36,11 +36,7 @@
                   <Font size="21.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/back.jpg" />
-                     </image>
-                  </ImageView>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(https://i.imgur.com/mxjOqD7.jpg);" />
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
