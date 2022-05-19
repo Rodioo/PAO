@@ -64,7 +64,6 @@ public class CourseDao implements Countable, Dao<Course> {
                 .findAny().orElse(null);
     }
 
-    //TODO: Query to get all courses using the aux_courses table, id_teacher and course table
     public List<Course> getCoursesByTeacherIds(List<Long> auxCourses) {
         return courses.stream()
                 .filter(course -> auxCourses.contains(course.getId()))

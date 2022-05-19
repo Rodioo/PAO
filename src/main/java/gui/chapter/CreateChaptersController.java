@@ -82,7 +82,6 @@ public class CreateChaptersController {
         }
     }
 
-    //TODO:Add the course to the database in aux_course and course
     public void loadTeacherHomeScene() throws IOException {
         if(!this.course.getChapters().isEmpty()) {
             chapterErrorIcon.setVisible(false);
